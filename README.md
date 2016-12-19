@@ -1,9 +1,8 @@
-# _Project_
+# _Coding Notes_
 
-#### By _****, MM/DD/YYYY_
+#### By _Diego Suarez, Joshua Rinard, Kevin Finley, Getro Naissance 12/19/2016_
 
 ## Description
-
 
 
 **User Stories**

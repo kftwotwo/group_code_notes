@@ -2,7 +2,8 @@ ENV['RACK_ENV'] = 'test'
 require('rspec')
 require('pg')
 require('sinatra/activerecord')
-# require('project')
+require_relative '../app'
+require_relative '../models/snippet'
 
 RSpec.configure do |config|
   config.after(:each) do
