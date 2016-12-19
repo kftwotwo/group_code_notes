@@ -7,6 +7,7 @@ require_relative '../models/snippet'
 
 RSpec.configure do |config|
   config.after(:each) do
-    # Project.all.each(&:destroy)
+    Folder.destroy_all
+    Snippet.destroy_all
   end
 end
