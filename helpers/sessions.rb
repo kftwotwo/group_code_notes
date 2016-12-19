@@ -1,5 +1,6 @@
 require 'securerandom'
 require 'httparty'
+require('pry')
 
 helpers do
   def current_github_username
@@ -18,19 +19,35 @@ helpers do
     session[:github_user][:auth_token]
   end
 
-
-
   def authenticated?
     !session[:github_user].blank?
   end
 
   def logout!
+    session[:github_user] = nil
     session.delete :github_user
+    session.delete(:message)
+    session.clear
+    p "the session is:",session
+    # binding.pry
   end
 
   def authenticate!
     return if authenticated?
 
+    session['github_oauth_check_state'] = SecureRandom.hex
+
+    oauth_params = {
+        :client_id => ENV['GITHUB_CLIENT_ID'],
+        :redirect_uri => request.base_url + "/auth/callback",
+        :scope => 'user, gist',
+        :state => session['github_oauth_check_state']
+    }
+
+    redirect 'https://github.com/login/oauth/authorize?' + hash_to_querystring(oauth_params)
+  end
+
+  def delete_session
     session['github_oauth_check_state'] = SecureRandom.hex
 
     oauth_params = {

@@ -17,7 +17,7 @@ require_relative "controllers/snippet"
 require_relative "controllers/authentication"
 
 enable :sessions
-set :session_secret, ENV['SESSION_SECRET'] || 'MY_DEV_SECRET_4_SNIPPETS'
+# set :session_secret, ENV['SESSION_SECRET'] || 'MY_DEV_SECRET_4_SNIPPETS'
 
 use Rack::Flash
 
