@@ -1,0 +1,176 @@
+* {
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+}
+body {
+  background-color: #1f262e;
+  height: 100%;
+}
+/*.container {
+  width: 100%;
+}
+.rounded{
+  border-radius: 4px;
+}*/
+
+#main {
+}
+#main-nav{
+  background-color: #33404d;
+  width: 350px;
+  height: 100%;
+  padding: 20px;
+  float:left;
+}
+#folder-nav {
+  background-color: #818d98;
+  height: 100%;
+  margin-left: 100px;
+  margin-top: -120px;
+}
+#content {
+  background-color: #999;
+  height: 100%;
+  margin-left: 350px;
+  min-width: 550px;
+  width: 100%;
+}
+
+.folder-title {
+  color: #fff;
+}
+
+
+
+#footer {
+  text-align: center;
+}
+.copyright {
+  color: #ccc;
+}
+.well {
+  border-radius: 10px 10px 10px;
+  margin-bottom: 15px;
+}
+#main p {
+  color: #999;
+  font-style: italic;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+w {
+  color: #fff;
+  font-size::3em;
+}
+
+h1, h2 {
+  color: #fff;
+}
+h3 {
+  margin-top: 0px;
+  color: #888;
+}
+h4 {
+  color: #000;
+}
+hr {
+  border-color: #999;
+}
+span.h3 {
+  display: inline-block;
+  font-size: .8em;
+  color: #665;
+}
+label {
+  color: #534292;
+}
+input {
+  margin-top: 10px;
+}
+.form-group {
+  margin-bottom: 30px;
+}
+
+
+
+/*Alters Focus on button and input*/
+button:focus{
+  outline: none !important;
+  border-color: #fff;
+}
+.btn {
+  /*background: linear-gradient(to right, #33404d, #000);*/
+  border-color: #fff;
+  text-align: center;
+  width: 50%;
+  font-size: 1em;
+
+}
+.btn:hover{
+  background-color: #33404d;
+  border-color: #fff;
+}
+.btn:active {
+  background-color: #33404d;
+  border-color: #fff;
+}
+.btn:focus {
+  background-color: #33404d;
+  border-color: #fff;
+}
+.btn:focus {
+  background: linear-gradient(to right, #33404d, #000);
+  color: #fff;
+  border-color: #fff;
+}
+
+/*li {
+  list-style: none;
+  font-size: 1em;
+  padding: 6px 10px;
+
+  border: 1px solid #000;
+  border-radius: 4px;
+  height: 30px;
+  width: 100px;
+
+}*/
+
+
+a {
+  display:inline;
+  color:#fff;
+}
+a:hover {
+  display:inline;
+  color:#fff;
+  text-decoration: none;
+}
+a:visited {
+  color: #fff;
+}
+a:active {
+  display:inline;
+  color:#fff;
+  text-decoration: none;
+}
+
+/*Navigation*/
+#nav {
+  background: linear-gradient(#d2d2d2, #fff);
+}
+
+nav, a:link {
+  display:inline;
+  color:#000;
+}
+nav, a:hover {
+  display:inline;
+  color:#000;
+  text-decoration: none;
+}
+ nav, a:active {
+  display:inline;
+  color:000;
+  text-decoration: none;
+}
