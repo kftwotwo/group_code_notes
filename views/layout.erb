@@ -9,6 +9,12 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
   <link href="/css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+  <script>
+  function openWin() {
+      window.open("http://www.github.com/logout");
+  }
+
+</script>
 </head>
 <body>
 
@@ -43,7 +49,7 @@
 
     <ul class="collapsible" data-collapsible="accordion">
       <li>
-        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>Sinatra <i class="fa fa-cogs" aria-hidden="true"></i></div>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>Sinatra</a></div>
         <div class="collapsible-body blue-grey lighten-3">
             <div class="collapsible-header blue-grey lighten-4 "><a href="/lines"><i class="material-icons">code</i>Snippet 01</a></div>
             <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
@@ -69,8 +75,9 @@
       </li>
 
     </ul>
-    <div id="logout-button">
-      <a class="waves-effect waves-light btn red"<a href="https://github.com/logout">Log Out</a></a>
+
+    <div id="logout-button"><input type="button" value="Log Out" onclick="openWin() ">
+      <a class="waves-effect waves-light btn red" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
     </div>
 
     </div>
