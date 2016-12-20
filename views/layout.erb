@@ -10,6 +10,19 @@
 
 </head>
 <body>
+
+  <!-- <ul>
+  <% if authenticated? %>
+      <li><a href="/snippets">All snippets</a></li>
+      <li><a href="/logout">Logout</a></li>
+      <li style="background-size: contain; background-repeat: no-repeat; background-image: url(<%= current_github_avatar %>)">
+        <a href="<%= current_github_url %>">&nbsp;</a></li>
+  <% else %>
+      <li><a href="/login">Login</a></li>
+  <% end %>
+</ul>
+</div> -->
+
   <%= yield %>
 
 
