@@ -103,10 +103,30 @@
 
   <% end %>
 
-  <!-- Kevin's modal -->
-  <div id="snippet_input">
-  <a class="waves-effect waves-light btn modal-trigger" href="#new"><i class="material-icons">add</i></a>
 
+
+
+  <!-- t.string   "title"
+  t.text     "content"
+  t.string   "tags"
+  t.string   "github_username"
+  t.string   "language"
+  t.integer  "folder_id"
+  t.boolean  "public"
+  description -->
+
+  <!-- Kevin's modal -->
+  <div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating red"><i class="material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder">insert_chart</i></a></li>
+      <li><a class="btn-floating red modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new"><i class="material-icons">note_add</i></a></li>
+    </ul>
+  </div>
+
+  <div id="snippet_input">
   <div id="new" class="modal modal-form">
     <div class="modal-content">
       <div class="modal-header">
@@ -127,7 +147,7 @@
                   <label for="title"><b>Title</b></label>
                 </div>
                 <div class="input-field col s12 m6">
-                  <div class="chips">
+                  <div class="chips" name='tags'>
                   </div>
                 </div>
                 <div class="input-field col s12 m6">
@@ -136,7 +156,7 @@
                 </div>
                 <!-- asdfasdfasdf -->
                 <div class="input-field col s12">
-                  <textarea id="textarea1" class="lined" >
+                  <textarea id="textarea1" class="lined" name='content'>
                   helpers do
                     def h content
                       Rack::Utils::escape_html content
@@ -156,7 +176,7 @@
                   <label>Langauge</label>
                 </div>
                 <div class="input-field col s6">
-                  <select>
+                  <select name="folder_id">
                     <option value="" disabled selected>Choose a Folder</option>
                     <option value="1">Random</option>
                     <option value="2">Bash</option>
@@ -171,7 +191,7 @@
                 <div class="switch">
                   <label>
                     Public (off)
-                    <input type="checkbox">
+                    <input type="checkbox" name="public">
                     <span class="lever"></span>
                     Private (on)
                   </label>
@@ -187,13 +207,8 @@
 </div>
 
 
-<script>
-$(function() {
-	$(".lined").linedtextarea(
-		{selectedLine: 1}
-	);
-});
-</script>
+
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="jquery-linedtextarea.js"></script>
 <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
