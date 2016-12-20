@@ -9,6 +9,5 @@ get '/snippets' do
 end
 
 get '/gists' do
-  
   erb :gists
 end
