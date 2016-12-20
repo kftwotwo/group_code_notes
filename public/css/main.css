@@ -37,3 +37,11 @@ body {
   left:50%;
   transform: translate(-50%,-50%);
   }
+
+  img {
+    margin-top: 35%;
+  }
+
+  .space {
+    margin-top: 25px;
+  }
