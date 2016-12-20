@@ -101,7 +101,6 @@
 
   <% end %>
 
-
   <!-- Kevin's modal -->
   <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
     <a class="btn-floating btn-large red" onMouseOver="Materialize.toast('Create New Folders and Snippets', 3000)">
@@ -140,7 +139,6 @@
     </div>
   </div>
 
-
   <div id="new_snippet" class="modal modal-form">
     <div class="modal-content">
       <div class="modal-header">
@@ -168,7 +166,6 @@
                   <input id="description" name="description" type="text" required>
                   <label for="description"><b>Description</b></label>
                 </div>
-
                 <div class="input-field col s12">
                   <textarea id="textarea1" class="lined" name='content'>
                   def enter_code
@@ -179,22 +176,21 @@
                 <div class="input-field col s6">
                   <select>
                     <option value="" disabled selected>Select a Language</option>
-                    <option value="1">.net</option>
-                    <option value="2">CSS</option>
-                    <option value="3">Ruby</option>
+                    <option value="1">Ruby</option>
+                    <option value="2">HTML</option>
+                    <option value="3">CSS</option>
                     <option value="4">Javascript</option>
-                    <option value="5">Android</option>
                   </select>
                   <label>Langauge</label>
                 </div>
                 <div class="input-field col s6">
                   <select name="folder_id">
                     <option value="" disabled selected>Choose a Folder</option>
-                    <option value="1">Random</option>
-                    <option value="2">Bash</option>
-                    <option value="3">Personal</option>
-                    <option value="4">Work</option>
-                    <option value="5">Fun</option>
+                    <% if @folders.any? %>
+                      <% @folders.each do |folder| %>
+                      <option value="<%= folder.id %>"> <%= folder.name %></option>
+                      <% end %>
+                    <% end %>
                   </select>
                   <label>Folder</label>
                 </div>
@@ -220,9 +216,6 @@
   <footer class="page-footer">
     <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance -  <a href="https://github.com/DiegoSPB/coding_notes"><w>View on Github</w></a></p></span>
   </footer>
-
-
-
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="jquery-linedtextarea.js"></script>
