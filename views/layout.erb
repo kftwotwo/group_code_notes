@@ -90,6 +90,83 @@
 
   <% end %>
 
+  <!-- Kevin's modal -->
+  <div id="snippet_input">
+  <a class="waves-effect waves-light btn modal-trigger" href="#new"><i class="material-icons">add</i></a>
+
+  <div id="new" class="modal modal-form">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col s12">
+            <button type="button" class="modal-close waves-effect waves-light btn right">x</button>
+            <h4><b>New Snippet</b></h4>
+          </div>
+        </div>
+      </div>
+      <div class="modal-body">
+        <form  action="/new" method="post">
+          <div class="row">
+            <div class="col s12">
+              <div class="row">
+                <div class="input-field col s12 m12">
+                  <input id="title" name="title" type="text" required>
+                  <label for="title"><b>Title</b></label>
+                </div>
+                <div class="input-field col s12 m6">
+                  <div class="chips">
+                  </div>
+                </div>
+                <div class="input-field col s12 m6">
+                  <input id="description" name="description" type="text" required>
+                  <label for="description"><b>Description</b></label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="code" name="code" type="text" required>
+                  <label for="code"><b>Code</b></label>
+                </div>
+                <div class="input-field col s6">
+                  <select>
+                    <option value="" disabled selected>Select a Language</option>
+                    <option value="1">.net</option>
+                    <option value="2">CSS</option>
+                    <option value="3">Ruby</option>
+                    <option value="4">Javascript</option>
+                    <option value="5">Android</option>
+                  </select>
+                  <label>Langauge</label>
+                </div>
+                <div class="input-field col s6">
+                  <select>
+                    <option value="" disabled selected>Choose a Folder</option>
+                    <option value="1">Random</option>
+                    <option value="2">Bash</option>
+                    <option value="3">Personal</option>
+                    <option value="4">Work</option>
+                    <option value="5">Fun</option>
+                  </select>
+                  <label>Folder</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="switch">
+                  <label>
+                    Public (off)
+                    <input type="checkbox">
+                    <span class="lever"></span>
+                    Private (on)
+                  </label>
+                </div>
+              </div>
+              <button class="btn waves-effect waves-light btn" type="submit">Enter</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
 

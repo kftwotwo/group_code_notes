@@ -8,4 +8,16 @@ $(document).ready(function(){
     );
     $('.collapsible').collapsible();
 
+    //snippet *Kevin*
+    $('.modal-trigger').leanModal();{}
+    $('select').material_select('open');
+    $('.chips').material_chip({
+      data: [{
+          tag: 'Enter Here',
+        }]
+      });
 });
+
+var chip = {
+    tag: 'chip content',
+  };
