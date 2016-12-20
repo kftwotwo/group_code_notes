@@ -51,6 +51,13 @@ delete '/folder/:id' do
   redirect '/'
 end
 
+patch '/folder/:id' do
+  @folders = Folder.find(params["id"].to_i)
+  update_name = params['update_name']
+  @folders.update({:name => update_name})
+  redirect '/'
+end
+
 # post('/new_snippet') do
 #
 # end

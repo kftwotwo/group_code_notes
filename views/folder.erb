@@ -1,8 +1,8 @@
-<%= @folers_name %>
-
-<form class="" action="index.html" method="patch">
-  <input type="text" name="update_name"id="update_name">
+<form class="" action="/folder/<%= @folder.id %>" method="post">
+  <input name="_method" type="hidden" value="patch">
   <label for="update_name">Update Name</label>
+  <input type="text" name="update_name" id="update_name" required>
+  <button type="submit" class="btn green">Update</button>
 </form>
 
 <form action="detele" method="destory">
