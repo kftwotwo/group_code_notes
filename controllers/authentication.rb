@@ -7,6 +7,9 @@ get '/logout' do
   logout!
   redirect '/'
 end
+get '/login_page' do
+  erb(:login_page)
+end
 
 
 get '/auth/callback' do
