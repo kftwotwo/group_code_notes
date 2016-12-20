@@ -9,17 +9,15 @@ gem('launchy')
 gem('pg')
 gem('sinatra-activerecord')
 gem('rake')
-gem 'pg'
-gem 'sinatra-activerecord'
-gem 'activesupport', '~>4.1'
-gem 'activerecord', '~>4.1'
+gem 'activesupport'
+gem 'activerecord'
 gem 'thin'
-gem 'rake'
 gem 'httparty'
 gem 'dotenv'
 gem 'rack-flash3'
 gem 'json', '~>1.7'
 gem 'pry'
+gem 'gist'
 
 
 group :development, :test do
