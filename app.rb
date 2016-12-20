@@ -38,7 +38,7 @@ end
 post '/new_folder' do
   folder_name = params[:name]
   @folder = Folder.create(:name => folder_name)
-  erb(:index)
+  redirect '/'
 end
 
 get '/folder/:id' do
@@ -59,6 +59,9 @@ patch '/folder/:id' do
   redirect '/'
 end
 
-# post('/new_snippet') do
-#
-# end
+post('/new_snippet') do
+  snippet_title = params[:title]
+  snippet_description = params[:description]
+  snippet_content = params[:content]
+  snippet_tags = params[:tags]
+end

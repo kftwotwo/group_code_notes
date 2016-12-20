@@ -13,7 +13,6 @@
   function openWin() {
       window.open("http://www.github.com/logout");
   }
-
 </script>
 </head>
 <body>
@@ -55,27 +54,27 @@
               <% if @snippets.any?() %>
                   <% @snippets.each() do |snippet| %>
                 <div class="collapsible-body blue-grey lighten-3 ">
-                <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.name %></a></div>
-            </div>
+                  <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.name %></a></div>
+                </div>
             <% end %>
             <% else %>
               <div class="collapsible-body blue-grey lighten-3 ">
-              <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Snippet</a></div>
+                <div class="collapsible-header blue-grey lighten-4 ">
+                  <i class="material-icons">not_interested</i>No Snippet</a>
+                </div>
+              </div>
           </li>
           <% end %>
         <% end %>
       <% else %>
-
           <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
-
       <% end %>
     </ul>
 
     <div id="logout-button"><input type="button" value="Log Out" onclick="openWin() ">
       <a class="waves-effect waves-light btn red" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
     </div>
-
-    </div>
+  </div>
 
     <div class="col s8 8 mycont">
       <div class="">
