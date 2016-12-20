@@ -1,0 +1,15 @@
+<%= @folers_name %>
+
+<form class="" action="index.html" method="patch">
+  <input type="text" name="update_name"id="update_name">
+  <label for="update_name">Update Name</label>
+</form>
+
+<form action="detele" method="destory">
+  <input name="_method" type="hidden" value="delete">
+</form>
+
+<form action="/folder/<%= @folder.id %>" method="post" class="left delete-form">
+ <input name="_method" type="hidden" value="delete">
+ <button type="submit" class="btn red right">Delete</button>
+</form>
