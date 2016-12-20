@@ -1,0 +1,15 @@
+hello
+URI.escape(URI(gist.fetch('files').values[0].fetch('raw_url')).read)
+<%require 'open-uri'  %>
+
+<% if get_gists.any? %>
+  <% get_gists.each do |gist| %>
+  <%= URI(gist.fetch('files').values[0].fetch('raw_url')).read%>
+<br>
+  <% end %>
+
+<% else %>
+  No gists found
+<% end  %>
+
+<!-- {"url"=>"https://api.github.com/gists/c97afe8d20798886b824ad8d102fac77", "forks_url"=>"https://api.github.com/gists/c97afe8d20798886b824ad8d102fac77/forks", "commits_url"=>"https://api.github.com/gists/c97afe8d20798886b824ad8d102fac77/commits", "id"=>"c97afe8d20798886b824ad8d102fac77", "git_pull_url"=>"https://gist.github.com/c97afe8d20798886b824ad8d102fac77.git", "git_push_url"=>"https://gist.github.com/c97afe8d20798886b824ad8d102fac77.git", "html_url"=>"https://gist.github.com/c97afe8d20798886b824ad8d102fac77", "files"=>{"test.rb"=>{"filename"=>"test.rb", "type"=>"application/x-ruby", "language"=>"Ruby", "raw_url"=>"https://gist.githubusercontent.com/DiegoSPB/c97afe8d20798886b824ad8d102fac77/raw/13539d84407551c4f2c1c18964b867379a5f8043/test.rb", "size"=>29}}, "public"=>false, "created_at"=>"2016-12-16T00:36:23Z", "updated_at"=>"2016-12-16T00:36:23Z", "description"=>"simple test #test", "comments"=>0, "user"=>nil, "comments_url"=>"https://api.github.com/gists/c97afe8d20798886b824ad8d102fac77/comments", "owner"=>{"login"=>"DiegoSPB", "id"=>7718178, "avatar_url"=>"https://avatars.githubusercontent.com/u/7718178?v=3", "gravatar_id"=>"", "url"=>"https://api.github.com/users/DiegoSPB", "html_url"=>"https://github.com/DiegoSPB", "followers_url"=>"https://api.github.com/users/DiegoSPB/followers", "following_url"=>"https://api.github.com/users/DiegoSPB/following{/other_user}", "gists_url"=>"https://api.github.com/users/DiegoSPB/gists{/gist_id}", "starred_url"=>"https://api.github.com/users/DiegoSPB/starred{/owner}{/repo}", "subscriptions_url"=>"https://api.github.com/users/DiegoSPB/subscriptions", "organizations_url"=>"https://api.github.com/users/DiegoSPB/orgs", "repos_url"=>"https://api.github.com/users/DiegoSPB/repos", "events_url"=>"https://api.github.com/users/DiegoSPB/events{/privacy}", "received_events_url"=>"https://api.github.com/users/DiegoSPB/received_events", "type"=>"User", "site_admin"=>false}, "truncated"=>false} -->
