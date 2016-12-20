@@ -38,10 +38,17 @@ body {
   transform: translate(-50%,-50%);
   }
 
-  img {
-    margin-top: 35%;
-  }
-
-  .space {
-    margin-top: 25px;
-  }
+img {
+  margin-top: 35%;
+}
+.space {
+  margin-top: 25px;
+}
+#logout-button {
+ position: absolute;
+ bottom: 1.4em;
+ left: 134px;
+}
+.logo{
+  color: white;
+}
