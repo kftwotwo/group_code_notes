@@ -7,28 +7,97 @@
   <link rel="stylesheet" href="/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+  <link href="/css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- <ul>
   <% if authenticated? %>
-      <li><a href="/snippets">All snippets</a></li>
-      <li><a href="/logout">Logout</a></li>
-      <li style="background-size: contain; background-repeat: no-repeat; background-image: url(<%= current_github_avatar %>)">
-        <a href="<%= current_github_url %>">&nbsp;</a></li>
-  <% else %>
-      <li><a href="/login">Login</a></li>
-  <% end %>
-</ul>
-</div> -->
+  <div class="row">
+    <div class="col s1 mynav">
+      <div class="">
+        <br>
+        <br>
+        <br>
+      </div>
+      <!-- Grey navigation panel -->
+      <div class="languages">
+        <a class="btn-floating btn-large waves-effect waves-light red top" href="/one"><i class="medium material-icons top">settings_ethernet</i></a>.
+        <a class="btn-floating btn-large waves-effect waves-light red top"><i class="medium material-icons top">settings</i></a>.
+        <a class="btn-floating btn-large waves-effect waves-light red top"><i class="medium material-icons top">assignment</i></a>.
+        <a class="btn-floating btn-large waves-effect waves-light red top"><i class="medium material-icons top">verified_user</i></a>.
+        <a class="btn-floating btn-large waves-effect waves-light red top"><i class="medium material-icons top">dashboard</i></a>.
+      </div>
 
+    </div>
+    <div class="col s3 myfolders">
+      <div class="">
+        <br>
+      </div> <center>
+      <div class="chip">
+        <img src="<%= current_github_avatar %>" alt="Contact Person">
+        <%= current_github_username %>
+      </div>
+    </center>
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>Sinatra <i class="fa fa-cogs" aria-hidden="true"></i></div>
+        <div class="collapsible-body blue-grey lighten-3 ">
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/1"><i class="material-icons">code</i>Snippet 01</a></div>
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/3"><i class="material-icons">code</i>Snippet 03</a></div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>oAuth</div>
+        <div class="collapsible-body blue-grey lighten-3 ">
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/1"><i class="material-icons">code</i>Snippet 01</a></div>
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/3"><i class="material-icons">code</i>Snippet 03</a></div>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>Enumberables</div>
+        <div class="collapsible-body blue-grey lighten-3 ">
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/1"><i class="material-icons">code</i>Snippet 01</a></div>
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
+            <div class="collapsible-header blue-grey lighten-4 "><a href="/3"><i class="material-icons">code</i>Snippet 03</a></div>
+        </div>
+      </li>
+
+    </ul>
+
+    </div>
+
+    <div class="col s8 8 mycont">
+      <div class="">
+        <br>
+      </div>
   <%= yield %>
+    </div>
+  <% else %>
+  <div class="back">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 centerIt">
+              <div class="wrap">
+                  <a href="/login" class="waves-effect waves-light btn brown darken-3">Sing in with GitHub</a>
+              </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+  <% end %>
 
 
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>b
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script src="/js/main.js"></script>
+<script src="/js/jquery-linedtextarea.js"></script>
 </body>
 </html>

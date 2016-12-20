@@ -1,0 +1,28 @@
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="jquery-linedtextarea.js"></script>
+	<link href="jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+	<script src="/path/to/highlight.pack.js"></script>
+
+	<!-- <pre>
+		<code > -->
+	<textarea class="lined" rows="100" cols="60">
+helpers do
+  def h content
+    Rack::Utils::escape_html content
+  end
+end
+</textarea>
+<!-- </code>
+</pre> -->
+
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>b
+	<script>hljs.initHighlightingOnLoad();</script>
+<script>
+$(function() {
+	$(".lined").linedtextarea(
+		{selectedLine: 1}
+	);
+});
+</script>

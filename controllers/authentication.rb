@@ -7,12 +7,13 @@ get '/logout' do
   logout!
   redirect '/'
 end
-get '/login_page' do
-  erb(:login_page)
+
+get '/lines' do
+  erb(:lines)
 end
 
 
 get '/auth/callback' do
-  redirect "/snippets" if handle_github_callback
+  redirect "/" if handle_github_callback
   halt 401, "Unable to Authenticate Via GitHub"
 end
