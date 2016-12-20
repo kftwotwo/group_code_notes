@@ -13,7 +13,6 @@
   function openWin() {
       window.open("http://www.github.com/logout");
   }
-
 </script>
 </head>
 <body>
@@ -48,39 +47,34 @@
     </center>
 
     <ul class="collapsible" data-collapsible="accordion">
-      <li>
-        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>Sinatra</a></div>
-        <div class="collapsible-body blue-grey lighten-3">
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/lines"><i class="material-icons">code</i>Snippet 01</a></div>
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/3"><i class="material-icons">code</i>Snippet 03</a></div>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>oAuth</div>
-        <div class="collapsible-body blue-grey lighten-3 ">
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/1"><i class="material-icons">code</i>Snippet 01</a></div>
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/3"><i class="material-icons">code</i>Snippet 03</a></div>
-        </div>
-      </li>
-      <li>
-        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i>Enumberables</div>
-        <div class="collapsible-body blue-grey lighten-3 ">
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/1"><i class="material-icons">code</i>Snippet 01</a></div>
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/2"><i class="material-icons">code</i>Snippet 02</a></div>
-            <div class="collapsible-header blue-grey lighten-4 "><a href="/3"><i class="material-icons">code</i>Snippet 03</a></div>
-        </div>
-
-      </li>
-
+      <% if @folders.any?() %>
+          <% @folders.each() do |folder| %>
+          <li>
+            <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></div>
+              <% if @snippets.any?() %>
+                  <% @snippets.each() do |snippet| %>
+                <div class="collapsible-body blue-grey lighten-3 ">
+                  <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.name %></a></div>
+                </div>
+            <% end %>
+            <% else %>
+              <div class="collapsible-body blue-grey lighten-3 ">
+                <div class="collapsible-header blue-grey lighten-4 ">
+                  <i class="material-icons">not_interested</i>No Snippet</a>
+                </div>
+              </div>
+          </li>
+          <% end %>
+        <% end %>
+      <% else %>
+          <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
+      <% end %>
     </ul>
 
-    <div id="logout-button"><input type="button" value="Log Out" onclick="openWin() ">
+    <div id="logout-button">
       <a class="waves-effect waves-light btn red" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
     </div>
-
-    </div>
+  </div>
 
     <div class="col s8 8 mycont">
       <div class="">
@@ -103,22 +97,60 @@
 
   <% end %>
 
-  <!-- Kevin's modal -->
-  <div id="snippet_input">
-  <a class="waves-effect waves-light btn modal-trigger" href="#new"><i class="material-icons">add</i></a>
 
-  <div id="new" class="modal modal-form">
+
+
+  <!-- Kevin's modal -->
+  <div class="fixed-action-btn horizontal click-to-toggle">
+    <a class="btn-floating btn-large red">
+      <i class="material-icons">menu</i>
+    </a>
+    <ul>
+      <li><a class="btn-floating blue modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder" href="#new_folder"><i class="material-icons">library_add</i></a></li>
+      <li><a class="btn-floating purple modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new_snippet"><i class="material-icons">note_add</i></a></li>
+    </ul>
+  </div>
+
+  <!-- folder form -->
+  <div id="new_folder"class="modal modal-form">
     <div class="modal-content">
       <div class="modal-header">
         <div class="row">
           <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right">x</button>
+            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
+            <h4><b>New Foler</b></h4>
+          </div>
+        </div>
+      </div>
+      <form action="/new_folder" method="post">
+        <div class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s12 m12">
+                <input id="name" name="name" type="text" required>
+                <label for="name"><b>Name</b></label>
+              </div>
+              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="new_snippet" class="modal modal-form">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col s12">
+            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
             <h4><b>New Snippet</b></h4>
           </div>
         </div>
       </div>
       <div class="modal-body">
-        <form  action="/new" method="post">
+        <form  action="/new_snippet" method="post">
           <div class="row">
             <div class="col s12">
               <div class="row">
@@ -127,16 +159,20 @@
                   <label for="title"><b>Title</b></label>
                 </div>
                 <div class="input-field col s12 m6">
-                  <div class="chips">
+                  <div class="chips" name='tags'>
                   </div>
                 </div>
                 <div class="input-field col s12 m6">
                   <input id="description" name="description" type="text" required>
                   <label for="description"><b>Description</b></label>
                 </div>
+
                 <div class="input-field col s12">
-                  <input id="code" name="code" type="text" required>
-                  <label for="code"><b>Code</b></label>
+                  <textarea id="textarea1" class="lined" name='content'>
+                  def enter_code
+                    puts('here')
+                  end
+                  </textarea>
                 </div>
                 <div class="input-field col s6">
                   <select>
@@ -150,7 +186,7 @@
                   <label>Langauge</label>
                 </div>
                 <div class="input-field col s6">
-                  <select>
+                  <select name="folder_id">
                     <option value="" disabled selected>Choose a Folder</option>
                     <option value="1">Random</option>
                     <option value="2">Bash</option>
@@ -165,28 +201,28 @@
                 <div class="switch">
                   <label>
                     Public (off)
-                    <input type="checkbox">
+                    <input type="checkbox" name="public">
                     <span class="lever"></span>
                     Private (on)
                   </label>
                 </div>
               </div>
-              <button class="btn waves-effect waves-light btn" type="submit">Enter</button>
+              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>
 
 
 
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-<script src="/js/main.js"></script>
-<script src="/js/jquery-linedtextarea.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="jquery-linedtextarea.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/jquery-linedtextarea.js"></script>
 </body>
 </html>
