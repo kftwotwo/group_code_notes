@@ -28,6 +28,7 @@ end
 
 before do
   @folders = Folder.all
+  @snippets = Snippet.all
 end
 
 get '/' do
