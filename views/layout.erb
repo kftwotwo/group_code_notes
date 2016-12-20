@@ -106,33 +106,51 @@
 
 
 
-  <!-- t.string   "title"
-  t.text     "content"
-  t.string   "tags"
-  t.string   "github_username"
-  t.string   "language"
-  t.integer  "folder_id"
-  t.boolean  "public"
-  description -->
-
   <!-- Kevin's modal -->
   <div class="fixed-action-btn horizontal click-to-toggle">
     <a class="btn-floating btn-large red">
       <i class="material-icons">menu</i>
     </a>
     <ul>
-      <li><a class="btn-floating red"><i class="material-icons tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder">insert_chart</i></a></li>
-      <li><a class="btn-floating red modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new"><i class="material-icons">note_add</i></a></li>
+      <li><a class="btn-floating blue modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder" href="#new_folder"><i class="material-icons">library_add</i></a></li>
+      <li><a class="btn-floating purple modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new_snippet"><i class="material-icons">note_add</i></a></li>
     </ul>
   </div>
 
-  <div id="snippet_input">
-  <div id="new" class="modal modal-form">
+  <div id="new_folder"class="modal modal-form">
     <div class="modal-content">
       <div class="modal-header">
         <div class="row">
           <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right">x</button>
+            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
+            <h4><b>New Foler</b></h4>
+          </div>
+        </div>
+      </div>
+      <form  action="/new_folder" method="post">
+        <div class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s12 m12">
+                <input id="name" name="name" type="text" required>
+                <label for="name"><b>Name</b></label>
+              </div>
+              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div id="snippet_input">
+  <div id="new_snippet" class="modal modal-form">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="row">
+          <div class="col s12">
+            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
             <h4><b>New Snippet</b></h4>
           </div>
         </div>
@@ -154,13 +172,11 @@
                   <input id="description" name="description" type="text" required>
                   <label for="description"><b>Description</b></label>
                 </div>
-                <!-- asdfasdfasdf -->
+
                 <div class="input-field col s12">
                   <textarea id="textarea1" class="lined" name='content'>
-                  helpers do
-                    def h content
-                      Rack::Utils::escape_html content
-                    end
+                  def enter_code
+                    puts('here')
                   end
                   </textarea>
                 </div>
@@ -197,21 +213,20 @@
                   </label>
                 </div>
               </div>
-              <button class="btn waves-effect waves-light btn" type="submit">Enter</button>
+              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="jquery-linedtextarea.js"></script>
-<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
 <script src="/js/main.js"></script>
