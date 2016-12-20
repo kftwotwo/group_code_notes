@@ -1,6 +1,8 @@
-# _Coding Notes_
+# Coding Notes
 
-#### By _Diego Suarez, Joshua Rinard, Kevin Finley, Getro Naissance 12/19/2016_
+### Date: 12/19/2016
+
+#### By Diego Suarez, Joshua Rinard, [Kevin Finley](http://www.kfinley.com), Getro Naissance
 
 ## Description
 
@@ -15,24 +17,36 @@ Coding notes is a group project to build an app that allows the user to save sni
 * As a user, I want to be able to highlight specific code to view more details
 
 ## Setup/Installation Requirements
+Once the repository is cloned enter the following
 
-* Clone this repo: `git clone git@github.com:name/DiegoSPB/coding_notes`
-* Change to the repo directory: `cd coding_notes`
-* Install gems: `bundle install --path vendor/bundle`
-* Install the database: *instruction below*
-* Run the app: `ruby app.rb`
+```
+$ bundle install
+$ bundle exec rake db:create
+$ bundle exec rake db:migrate
+$ bundle exec rake db:test:prepare
+$ ruby app.rb
+```
 
-## Database Setup Instructions
+## Known Bugs
 
-* install and start postgres
-* run: `bundle exec rake db:create`
-* run: `bundle exec rake db:migrate`
-* run: `bundle exec rake db:test:prepare`
+If you notice any bugs or problems you can fill out an issue [here](http://www.github.com/DiegoSPB/coding_notes/issue) or feel free to submit a pull request.
+
+## Contact details
+Here our my emails `Kevin: kf.two.two@gmail.com`, `Diego: diego.spb@gmail.com`, `Getro: Getro89@gmail.com`, `Joshua: jrinard@hotmail.com`
+## Contribute
+
+Feel free to submit a pull request!
 
 ## Technologies Used
-
-_Ruby, Sinatra, SQL, Postgres, JavaScript, MaterializeCSS, jQuery_
-
+```
+Ruby
+Sinatra
+SQL
+Postgres
+JavaScript
+Materialize
+jQuery
+```
 ### License
 
 *MIT License*
