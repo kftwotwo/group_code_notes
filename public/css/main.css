@@ -62,11 +62,20 @@ img {
  bottom: 4.5em;
  left: 134px;
 }
-.logo{
-  color: white;
+.welcome{
+  color: #888;
+  font-size: 2em;
+  text-align: center;
 }
 .side {
   right: 30px;
+}
+.lightblue {
+  background-color: #607d8b;
+}
+.lightgrey {
+  background-color: #fff;
+  box-shadow: 2px 2px 2px #999;
 }
 
 .darkblue {
@@ -102,14 +111,24 @@ img {
   width: 100%;
   max-height: 50px;
 }
-
-.footer-text {
-  color: #fff;
-  font-size: .8em;
-  text-align:center;
-  margin-bottom: 110px;
+.bottom-push {
+  bottom: 4.5em;
 }
 
-.bottom-push {
-   bottom: 4.5em;
+.home-content {
+  font-style: italic;
+  color: #999;
+  text-align: center;
+}
+.footer {
+  font-size: .8em;
+  text-align:center;
+  margin-top: 400px;
+}
+.import {
+  text-align: center;
+}
+
+.search-center {
+    text-align: center;
 }
