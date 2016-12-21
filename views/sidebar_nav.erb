@@ -2,11 +2,11 @@
     <br><br><br>
     <!-- Grey navigation panel -->
     <div class="languages">
-      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
-      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="/img/css-icon.png"></i></a>
-      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Javascript"><i class="medium material-icons top"><img src="/img/js-icon.png"></i></a>
-      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="/img/ruby-icon.png"></i></a>
-      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Favorite"><i class="medium material-icons top"><img src="/img/fav-icon.png"></i></a>
+      <a href="/html" class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
+      <a href="/css" class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="/img/css-icon.png"></i></a>
+      <a href="/javascript" class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Javascript"><i class="medium material-icons top"><img src="/img/js-icon.png"></i></a>
+      <a href="/ruby" class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="/img/ruby-icon.png"></i></a>
+      <a href="/favorites" class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Favorites "><i class="medium material-icons top"><img src="/img/fav-icon.png"></i></a>
     </div>
   </div>
 
@@ -22,6 +22,7 @@
       </div>
     </center>
 
+    <center> <%= @language %></center>
     <ul class="collapsible" data-collapsible="accordion">
       <% if @folders.any?() %>
         <% @folders.each() do |folder| %>

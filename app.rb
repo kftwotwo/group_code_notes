@@ -26,17 +26,41 @@ use Rack::Flash
 after do
   ActiveRecord::Base.clear_active_connections!
 end
+$language = "Ruby"
 
 before do
-  @folders = Folder.all
+  @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
+  p @folders, Folder.all," language: ", $language
+end
+
+get '/html' do
+  $language = "HTML"
+  erb(:index)
+end
+get '/css' do
+  $language = "CSS"
+  erb(:index)
+end
+get '/javascript' do
+  $language = "Javascript"
+  erb(:index)
+end
+get '/ruby' do
+  $language = "Ruby"
+  erb(:index)
+end
+get '/favorites' do
+  $language = "Favorites"
+  erb(:index)
 end
 
 get '/' do
+  $language = "Favorites"
   erb :index
 end
 post '/new_folder' do
   folder_name = params[:name]
-  @folder = Folder.create(:name => folder_name)
+  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>"Ruby")
   redirect '/'
 end
 
@@ -64,7 +88,7 @@ post('/new_snippet') do
   snippet_content = params[:content]
   snippet_tags = params[:tags]
   folder_id = params[:folder_id]
-  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true)
+  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => current_github_username, :language => "ruby",:description => snippet_description, :public => true)
   @folder = Folder.find(folder_id)
   @folder.snippets.push(new_snippet)
   p @folder.snippets
