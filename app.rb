@@ -29,8 +29,10 @@ end
 $language = "Ruby"
 
 before do
-  @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
-  p @folders, Folder.all," language: ", $language
+  if authenticated?
+    @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
+  end
+
 end
 
 get '/html' do
