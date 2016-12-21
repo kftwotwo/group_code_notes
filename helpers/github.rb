@@ -50,10 +50,10 @@ helpers do
   def import_gists()
     get_gists.each do |gist|
       content=""
-      filename = gist.fetch('files').values[0].fetch('filename')
-      publicness = gist.fetch('public')
-      description = gist.fetch('description')
-      language = gist.fetch('files').values[0].fetch('language')
+      filename = gist.fetch('files').values[0].fetch('filename', "N/A")
+      publicness = gist.fetch('public', 1)
+      description = gist.fetch('description', "N/A")
+      language = gist.fetch('files').values[0].fetch('language',"N/A")
       open(URI(gist.fetch('files').values[0].fetch('raw_url'))) {|f|
         f.each_line {|line|
           content+= line
