@@ -50,26 +50,37 @@
     <ul class="collapsible" data-collapsible="accordion">
       <% if @folders.any?() %>
           <% @folders.each() do |folder| %>
-          <li>
-            <div class="collapsible-header blue-grey lighten-4 ">
-              <i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons right">mode_edit</i></a></div>
-              <% if @snippets.any?() %>
-                  <% @snippets.each() do |snippet| %>
+            <li>
+              <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i><%= folder.name %>
+                <a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a>
+              </div>
+              <% if folder.snippets.any?() %>
+                <% folder.snippets.each() do |snippet| %>
+                  <div class="collapsible-body blue-grey lighten-3 ">
+                    <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>">
+                      <i class="material-icons">code</i><%= snippet.title %></a>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
                 <div class="collapsible-body blue-grey lighten-3 ">
-                  <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.name %></a></div>
+                  <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>">
+                    <i class="material-icons">code</i><%= snippet.title %><a href="/snippet/<%= snippet.id %>/edit">
+                    <i class="material-icons">mode_edit</i></a></a>
+                  </div>
                 </div>
-            <% end %>
+              <% end %>
             <% else %>
               <div class="collapsible-body blue-grey lighten-3 ">
                 <div class="collapsible-header blue-grey lighten-4 ">
                   <i class="material-icons">not_interested</i>No Snippet</a>
                 </div>
               </div>
-          </li>
+            </li>
           <% end %>
         <% end %>
       <% else %>
-          <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
       <% end %>
     </ul>
 
@@ -100,7 +111,6 @@
   </div>
 
   <% end %>
-
 
   <!-- Kevin's modal -->
   <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
@@ -140,7 +150,6 @@
     </div>
   </div>
 
-
   <div id="new_snippet" class="modal modal-form">
     <div class="modal-content">
       <div class="modal-header">
@@ -168,7 +177,6 @@
                   <input id="description" name="description" type="text" required>
                   <label for="description"><b>Description</b></label>
                 </div>
-
                 <div class="input-field col s12">
                   <textarea id="textarea1" class="lined" name='content'>
                   def enter_code
@@ -178,23 +186,22 @@
                 </div>
                 <div class="input-field col s6">
                   <select>
-                    <option value="" disabled selected>Select a Language</option>
-                    <option value="1">.net</option>
-                    <option value="2">CSS</option>
-                    <option value="3">Ruby</option>
+                    <option disabled selected>Select a Language</option>
+                    <option value="1">Ruby</option>
+                    <option value="2">HTML</option>
+                    <option value="3">CSS</option>
                     <option value="4">Javascript</option>
-                    <option value="5">Android</option>
                   </select>
                   <label>Langauge</label>
                 </div>
                 <div class="input-field col s6">
                   <select name="folder_id">
                     <option value="" disabled selected>Choose a Folder</option>
-                    <option value="1">Random</option>
-                    <option value="2">Bash</option>
-                    <option value="3">Personal</option>
-                    <option value="4">Work</option>
-                    <option value="5">Fun</option>
+                    <% if @folders.any? %>
+                      <% @folders.each do |folder| %>
+                      <option value="<%= folder.id %>"> <%= folder.name %></option>
+                      <% end %>
+                    <% end %>
                   </select>
                   <label>Folder</label>
                 </div>
@@ -220,9 +227,6 @@
   <footer class="page-footer">
     <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance -  <a href="https://github.com/DiegoSPB/coding_notes"><w>View on Github</w></a></p></span>
   </footer>
-
-
-
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="jquery-linedtextarea.js"></script>

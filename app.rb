@@ -28,7 +28,6 @@ end
 
 before do
   @folders = Folder.all
-  @snippets = Snippet.all
 end
 
 get '/' do
@@ -64,4 +63,35 @@ post('/new_snippet') do
   snippet_description = params[:description]
   snippet_content = params[:content]
   snippet_tags = params[:tags]
+  folder_id = params[:folder_id]
+  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true)
+  @folder = Folder.find(folder_id)
+  @folder.snippets.push(new_snippet)
+  p @folder.snippets
+  redirect '/'
+end
+
+get '/snippet/:id' do
+  @snippet = Snippet.find(params["id"].to_i)
+  erb(:snippet_info)
+end
+
+get '/snippet/:id/edit' do
+  @snippet = Snippet.find(params["id"].to_i)
+  erb(:snippet)
+end
+
+patch '/snippet/:id/edit' do
+  @snippet = Snippet.find(params["id"].to_i)
+  snippet_title = params['update_title']
+  snippet_description = params['update_description']
+  snippet_content = params['update_content']
+  snippet_tags = params['update_tag']
+  @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true})
+  redirect '/'
+end
+
+delete '/snippet/:id/edit' do
+  Snippet.find(params['id'].to_i).destroy
+  redirect '/'
 end
