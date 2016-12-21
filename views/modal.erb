@@ -88,6 +88,16 @@
                 </textarea>
               </div>
               <div class="input-field col s6">
+                <select>
+                  <option value="ruby">Ruby</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="javascript">Javascript</option>
+                  <option value="uncategorized" selected>Uncategorized</option>
+                </select>
+                <label>Langauge</label>
+              </div>
+              <div class="input-field col s6">
                 <select name="folder_id">
                   <option value="" disabled selected>Choose a Folder</option>
                   <% if @folders.any? %>

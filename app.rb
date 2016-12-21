@@ -112,3 +112,7 @@ delete '/snippet/:id/edit' do
   Snippet.find(params['id'].to_i).destroy
   redirect '/'
 end
+
+get '/delete' do
+  erb(:delete)
+end
