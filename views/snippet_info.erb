@@ -1,10 +1,26 @@
-Title: <%= @snippet.title %><br>
-Description: <%= @snippet.description %><br>
-Tags: <%= @snippet.tags %><br>
-language: <%= @snippet.language %><br><br>
+<b>Title: <%= @snippet.title %><br></b>
 
-<a href="/snippet/<%= @snippet.id %>/edit"><button type="button" class="btn green">Update</button></a><br><br>
-<form action="/snippet/<%= @snippet.id %>/edit" method="post" class="left delete-form">
- <input name="_method" type="hidden" value="delete">
- <button type="submit" class="btn red right">Delete</button>
-</form>
+<div class="row">
+  <form class="" action="/snippet/<%= @snippet.id %>/edit" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <div class="input-field col s12 m6">
+      <p for="update_content">Update Code</p>
+      <textarea id="textarea1" class="lined" name='update_content' required><%= @snippet.content %></textarea>
+    </div>
+
+    <div class="col m6">
+      <label for="update_title">Update Title</label>
+      <input type="text" name="update_title" id="update_title" value="<%= @snippet.title %>" required><br>
+
+      <label for="update_description">Update Description</label>
+      <input type="text" name="update_description" id="update_description" value="<%= @snippet.description %>" required><br>
+
+      <label for="update_tag">Update Tags</label>
+      <input type="text" name="update_tag" id="update_tag" value='<%= @snippet.tags %>' required><br>
+
+    </div>
+    <button type="submit" class="btn green">Update</button>
+  </form>
+</div>
+
+<a href="/snippet/<%= @snippet.id %>/delete" class="btn red">Delete</a>

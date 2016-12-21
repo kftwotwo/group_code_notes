@@ -1,0 +1,10 @@
+<div class="centerIt">
+  <form action="/snippet/<%= @snippet.id %>/delete" method="post" class="left delete-form">
+   <input name="_method" type="hidden" value="delete">
+   <center>
+     <h3>Are you sure you want to delete this snippet!</h3>
+   </center>
+   <button type="submit" class="btn red right">Yes</button>
+   <a href="/" class="btn green">No</a>
+  </form>
+</div>

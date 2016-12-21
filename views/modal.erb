@@ -88,6 +88,16 @@
                 </textarea>
               </div>
               <div class="input-field col s6">
+                <select>
+                  <option value="ruby">Ruby</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="javascript">Javascript</option>
+                  <option value="uncategorized" selected>Uncategorized</option>
+                </select>
+                <label>Langauge</label>
+              </div>
+              <div class="input-field col s6">
                 <select name="folder_id">
                   <option value="" disabled selected>Choose a Folder</option>
                   <% if @folders.any? %>
@@ -116,7 +126,23 @@
                   <input type="checkbox" name="public">
                   <span class="lever"></span>
                   Private (on)
-                </label><br><br><br>
+                </label>
+
+                <p>Save on Gist?</p>
+                <label>
+                  No
+                  <input type="checkbox" name="save_git">
+                  <span class="lever"></span>
+                  Yes
+                </label>
+
+                <p>Add to Favorites</p>
+                <label>
+                  No
+                  <input type="checkbox" name="add_to_fav">
+                  <span class="lever"></span>
+                  Yes
+                </label>
               </div>
             </div>
             <button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
