@@ -35,15 +35,7 @@
               <% folder.snippets.each() do |snippet| %>
                 <div class="collapsible-body blue-grey lighten-3">
                   <div class="collapsible-header blue-grey lighten-4">
-                    <a href="/snippet/<%= snippet.id %>">
-                      <i class="material-icons">code</i><%= snippet.title %>
-                  </a>
-                  </div>
-                </div>
-                <div class="collapsible-body blue-grey lighten-3">
-                  <div class="collapsible-header blue-grey lighten-4">
-                    <a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.title %></a>
-                    <a href="/snippet/<%= snippet.id %>/edit"><i class="material-icons">mode_edit</i></a>
+                    <a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.title %><a href="/snippet/<%= snippet.id %>/edit"><i class="material-icons">mode_edit</i></a></a>
                   </div>
                 </div>
               <% end %>
