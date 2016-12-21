@@ -1,5 +1,9 @@
+
+
 <div class="col s1 mynav">
-  <br><br><br>
+  <br>
+
+  <a href="/"><span class="home-button"><i class="material-icons">home</i></a></span><br><br>
   <!-- Grey navigation panel -->
   <div class="languages">
     <a href="/language/html" class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
@@ -17,19 +21,19 @@
     <div class="chip">Welcome:
       <a href="#settings" class="modal-trigger"><img src="<%= current_github_avatar %>" alt="Contact Person">
         <%= current_github_username %>
-        <i class="material-icons">settings</i></a>
+        <span class="settings-icon"><i class="material-icons">settings</i></a></span>
     </div>
   </center>
 
-
-  <center> <%= @language %></center>
+<br>
+  <center><span class="language-title"><%= $language.upcase() %></span></center><br>
   <ul class="collapsible" data-collapsible="accordion">
     <% if @folders.any?() %>
       <% @folders.each() do |folder| %>
         <li>
           <div class="collapsible-header blue-grey lighten-4">
             <i class="material-icons">web</i><%= folder.name %>
-          <a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a>
+          <span class="edit-folder"><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></span>
           </div>
           <% if folder.snippets.any?() %>
             <% folder.snippets.each() do |snippet| %>
