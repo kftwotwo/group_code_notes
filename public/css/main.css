@@ -68,6 +68,15 @@ img {
 .lightblue {
   background-color: #607d8b;
 }
+.lightblue:hover {
+  background-color: #37474f;
+}
+.lightblue:active{
+  background-color: #000;
+}
+.lightblue:visited{
+  background-color: #37474f;
+}
 .lightgrey {
   background-color: #fff;
   box-shadow: 2px 2px 2px #999;
@@ -150,5 +159,9 @@ img {
   padding-bottom: -40px;
 }
 .modal-body {
-  overflow: hidden;
+  overflow: visible;
+}
+
+#scrollable {
+overflow: scroll;
 }
