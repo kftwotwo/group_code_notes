@@ -39,11 +39,11 @@
         <br>
       </div> <center>
         <div class="logo">
-          <h5>Coding Notes</h5> <br>
+          <a href="/"><h5>Code Snippets</h5></a><br>
         </div>
-      <div class="chip">
-        <img src="<%= current_github_avatar %>" alt="Contact Person">
-        <%= current_github_username %>
+      <div class="chip">Welcome:
+         <a href="/" onMouseOver="Materialize.toast('Update Settings', 2000)"><img src="<%= current_github_avatar %>" alt="Contact Person">
+        <%= current_github_username %> </a>
       </div>
     </center>
 
@@ -74,7 +74,7 @@
     </ul>
 
     <div id="logout-button">
-      <a class="waves-effect waves-light btn red" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
+      <a class="waves-effect waves-light btn darkblue" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
     </div>
   </div>
 
@@ -104,7 +104,7 @@
 
   <!-- Kevin's modal -->
   <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
-    <a class="btn-floating btn-large red">
+    <a class="btn-floating btn-large red" onMouseOver="Materialize.toast('Create New Folders and Snippets', 3000)">
       <i class="material-icons">menu</i>
     </a>
     <ul>
@@ -119,7 +119,7 @@
       <div class="modal-header">
         <div class="row">
           <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
+            <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
             <h4><b>New Folder</b></h4>
           </div>
         </div>
@@ -132,7 +132,7 @@
                 <input id="name" name="name" type="text" required>
                 <label for="name"><b>Name</b></label>
               </div>
-              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
+              <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button>
             </div>
           </div>
         </div>
@@ -218,7 +218,7 @@
   </div>
 
   <footer class="page-footer">
-    <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance</p></span>
+    <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance -  <a href="https://github.com/DiegoSPB/coding_notes"><w>View on Github</w></a></p></span>
   </footer>
 
 

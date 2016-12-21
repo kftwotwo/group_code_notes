@@ -2,7 +2,15 @@
 body {
   background-color: #f5f5f5;
   margin-bottom: 20px;
+}
 
+h5 {
+  color: #fff;
+}
+
+w {
+  color: #fff;
+  font-weight: bold;
 }
 
 .languages{
@@ -55,6 +63,19 @@ img {
 }
 .side {
   right: 30px;
+}
+
+.darkblue {
+ background-color: #37474f;
+}
+.darkblue:hover {
+  background-color: #37474f;
+}
+.darkblue:active{
+  background-color: #000;
+}
+.darkblue:visited{
+  background-color: #37474f;
 }
 
 .custom-button{
