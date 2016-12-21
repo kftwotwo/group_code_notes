@@ -1,6 +1,6 @@
 <!-- Kevin's modal -->
 <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
-  <a class="btn-floating btn-large red" onMouseOver="Materialize.toast('Create New Folders and Snippets', 3000)">
+  <a class="btn-floating btn-large red">
     <i class="material-icons">menu</i>
   </a>
   <ul>
@@ -31,7 +31,7 @@
             <div class="input-field col s12 m12">
               <input id="name" name="name" type="text" required>
               <label for="name"><b>Name</b></label>
-              <div class="input-field col s6">
+              <div class="input-field col s6" id="scrollable">
                 <select name="selected-language">
                   <option value="html">HTML</option>
                   <option value="css">CSS</option>
@@ -56,8 +56,8 @@
     <div class="modal-header">
       <div class="row">
         <div class="col s12">
-          <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
-          <h4><b>New Snippet</b></h4>
+          <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
+          <h4><b><span class="darkblue-text">New Snippet</span></b></h4>
         </div>
       </div>
     </div>
@@ -66,34 +66,26 @@
         <div class="row">
           <div class="col s12">
             <div class="row">
-              <div class="input-field col s12 m12">
+              <div class="input-field col s12 m6">
                 <input id="title" name="title" type="text" required>
                 <label for="title"><b>Title</b></label>
-              </div>
-              <div class="input-field col s12 m6">
-                <div class="chips" name='tags'>
-                </div>
               </div>
               <div class="input-field col s12 m6">
                 <input id="description" name="description" type="text" required>
                 <label for="description"><b>Description</b></label>
               </div>
+              <div class="input-field col s12 m12 up">
+                <label for="">Enter Tags</label><br><br>
+                <div class="chips" name='tags'>
+                </div>
+              </div>
+
               <div class="input-field col s12">
                 <textarea id="textarea1" class="lined" name='content'>
                 def enter_code
                   puts('here')
                 end
                 </textarea>
-              </div>
-              <div class="input-field col s6">
-                <select>
-                  <option disabled selected>Select a Language</option>
-                  <option value="1">Ruby</option>
-                  <option value="2">HTML</option>
-                  <option value="3">CSS</option>
-                  <option value="4">Javascript</option>
-                </select>
-                <label>Langauge</label>
               </div>
               <div class="input-field col s6">
                 <select name="folder_id">
@@ -106,6 +98,16 @@
                 </select>
                 <label>Folder</label>
               </div>
+              <div class="input-field col s6">
+                <select>
+                  <option disabled selected>Select a Language</option>
+                  <option value="1">Ruby</option>
+                  <option value="2">HTML</option>
+                  <option value="3">CSS</option>
+                  <option value="4">Javascript</option>
+                </select>
+                <label>Langauge</label>
+              </div>
             </div> <!-- close row -->
             <div class="row">
               <div class="switch">
@@ -114,11 +116,11 @@
                   <input type="checkbox" name="public">
                   <span class="lever"></span>
                   Private (on)
-                </label>
+                </label><br><br><br>
               </div>
             </div>
-            <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
-          </div>
+            <button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
+          </div><br><br>
         </div> <!-- close row -->
       </form>
     </div> <!-- close modal body -->
