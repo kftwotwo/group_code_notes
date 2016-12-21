@@ -47,9 +47,7 @@ w {
   transform: translate(-50%,-50%);
   }
 #yield{
-  border: 2px solid red;
   height: 100%;
-
   overflow: scroll;
 }
 
