@@ -39,41 +39,21 @@ post '/import_gists' do
   erb(:gists)
 end
 
-get '/html' do
-  $language = "HTML"
-  erb(:index)
-end
-get '/css' do
-  $language = "CSS"
-  erb(:index)
-end
-get '/javascript' do
-  $language = "Javascript"
-  erb(:index)
-end
-get '/ruby' do
-  $language = "Ruby"
-  erb(:index)
-end
-get '/favorites' do
-  $language = "Favorites"
-  erb(:index)
-end
-
-get '/uncategorized' do
-  $language = "Uncategorized"
+get '/language/:lang' do
+  $language = params['lang']
+  @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
   erb(:index)
 end
 
 get '/' do
-  $language = "Favorites"
+  $language = "uncategorized"
   erb :index
 end
+#
 post '/new_folder' do
   folder_name = params[:name]
-  $language = params['selected-language']
-  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=> $language)
-  redirect '/'
+  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>params['selected-language'])
+  redirect '/'+params['selected-language']
 end
 
 get '/folder/:id' do
