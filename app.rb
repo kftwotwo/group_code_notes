@@ -32,7 +32,11 @@ before do
   if authenticated?
     @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
   end
+end
 
+post '/import_gists' do
+  import_gists()
+  erb(:gists)
 end
 
 get '/html' do
