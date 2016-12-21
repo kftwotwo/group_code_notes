@@ -26,7 +26,7 @@ use Rack::Flash
 after do
   ActiveRecord::Base.clear_active_connections!
 end
-$language = "Ruby"
+$language = 'Uncategorized'
 
 before do
   if authenticated?
@@ -36,7 +36,7 @@ end
 
 post '/import_gists' do
   import_gists()
-  erb(:gists) 
+  erb(:gists)
 end
 
 get '/html' do
@@ -60,13 +60,19 @@ get '/favorites' do
   erb(:index)
 end
 
+get '/uncategorized' do
+  $language = "Uncategorized"
+  erb(:index)
+end
+
 get '/' do
   $language = "Favorites"
   erb :index
 end
 post '/new_folder' do
   folder_name = params[:name]
-  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>"Ruby")
+  $language = params['selected-language']
+  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=> $language)
   redirect '/'
 end
 
