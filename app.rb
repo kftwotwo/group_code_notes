@@ -7,6 +7,7 @@ require 'sinatra/activerecord'
 require 'rack-flash'
 require('pry')
 require('gist')
+require 'open-uri'
 
 require_relative "helpers/formatting"
 require_relative "helpers/sessions"

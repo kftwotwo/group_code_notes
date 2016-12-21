@@ -20,4 +20,25 @@ helpers do
                             })
     JSON.parse(response.body)
   end
+
+  def get_raw_url(gists)
+    code=""
+    gists.each do |gist|
+      open(URI(gist.fetch('files').values[0].fetch('raw_url'))) {|f|
+        f.each_line {|line|
+          code+= line
+          code+="<br />"
+        }
+      }
+    end
+    code
+  end
+  def get_filenames(gists)
+    code=[]
+    gists.each do |gist|
+      code.push(gist.fetch('files').values[0].fetch('filename'))
+    end
+    code
+  end
+
 end

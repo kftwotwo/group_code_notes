@@ -1,12 +1,6 @@
-hello
-URI.escape(URI(gist.fetch('files').values[0].fetch('raw_url')).read)
-<%require 'open-uri'  %>
-
 <% if get_gists.any? %>
-  <% get_gists.each do |gist| %>
-  <%= URI(gist.fetch('files').values[0].fetch('raw_url')).read%>
-<br>
-  <% end %>
+  <%= get_gists_raw_url(get_gists) %>
+  <%= get_gists_filenames(get_gists) %>
 
 <% else %>
   No gists found
