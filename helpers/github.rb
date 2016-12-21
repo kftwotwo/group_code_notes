@@ -21,7 +21,7 @@ helpers do
     JSON.parse(response.body)
   end
 
-  def get_raw_url(gists)
+  def get_gists_raw_url(gists)
     code=""
     gists.each do |gist|
       open(URI(gist.fetch('files').values[0].fetch('raw_url'))) {|f|
@@ -33,12 +33,18 @@ helpers do
     end
     code
   end
-  def get_filenames(gists)
+
+  def get_gists_filenames(gists)
     code=[]
     gists.each do |gist|
       code.push(gist.fetch('files').values[0].fetch('filename'))
     end
     code
+  end
+
+  def create_new_gist(content, filename, publicness, description)
+    @auth = session[:github_user][:auth_token]
+    Gist.gist(content, options = {:access_token => @auth, :filename=> filename, :public => publicness, :description => description})
   end
 
 end
