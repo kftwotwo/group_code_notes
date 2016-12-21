@@ -70,3 +70,23 @@ post('/new_snippet') do
   p @folder.snippets
   redirect '/'
 end
+
+get '/snippet/:id' do
+  @snippet = Snippet.find(params["id"].to_i)
+  erb(:snippet_info)
+end
+
+get '/snippet/:id/edit' do
+  @snippet = Snippet.find(params["id"].to_i)
+  erb(:snippet)
+end
+
+patch '/snippet/:id/edit' do
+  @snippet = Snippet.find(params["id"].to_i)
+  snippet_title = params['update_title']
+  snippet_description = params['update_description']
+  snippet_content = params['update_content']
+  snippet_tags = params['update_tag']
+  @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true})
+  redirect '/'
+end
