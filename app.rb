@@ -7,6 +7,7 @@ require 'sinatra/activerecord'
 require 'rack-flash'
 require('pry')
 require('gist')
+require 'open-uri'
 
 require_relative "helpers/formatting"
 require_relative "helpers/sessions"
@@ -33,7 +34,6 @@ end
 get '/' do
   erb :index
 end
-
 post '/new_folder' do
   folder_name = params[:name]
   @folder = Folder.create(:name => folder_name)
