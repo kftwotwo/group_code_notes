@@ -95,7 +95,7 @@ end
 
 get '/snippet/:id/edit' do
   @snippet = Snippet.find(params["id"].to_i)
-  erb(:snippet)
+  erb(:snippet_info)
 end
 
 patch '/snippet/:id/edit' do
@@ -108,11 +108,12 @@ patch '/snippet/:id/edit' do
   redirect '/'
 end
 
-delete '/snippet/:id/edit' do
-  Snippet.find(params['id'].to_i).destroy
-  redirect '/'
+get '/snippet/:id/delete' do
+  @snippet = Snippet.find(params["id"].to_i)
+  erb(:delete)
 end
 
-get '/delete' do
-  erb(:delete)
+delete '/snippet/:id/delete' do
+  Snippet.find(params['id'].to_i).destroy
+  redirect '/'
 end
