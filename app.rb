@@ -34,7 +34,6 @@ end
 get '/' do
   erb :index
 end
-
 post '/new_folder' do
   folder_name = params[:name]
   @folder = Folder.create(:name => folder_name)
