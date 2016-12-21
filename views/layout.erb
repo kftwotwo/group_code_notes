@@ -19,17 +19,17 @@ function openWin() {
     <% if authenticated? %>
       <div class="row">
         <%= erb :sidebar_nav %>
-        <div class="col s8 mycont"><br>
+        <div class="col s4 m5 l8" id="yield"><br>
           <%= yield %>
-        </div>
-    </div> <!-- close row-->
+        </div> <!-- close row-->
+      </div>
     <%= erb :modal %>
     <%= erb :footer %>
     <% else %> <!-- else for authentication -->
       <div class="back">
         <div class="container">
           <div class="row">
-            <div class="col-md-12 centerIt">
+            <div class="col s12 centerIt">
               <div class="wrap">
                 <a href="/login" class="waves-effect waves-light btn brown darken-3">Sign in with GitHub</a>
               </div>
