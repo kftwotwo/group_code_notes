@@ -24,19 +24,11 @@ helpers do
   end
 
   def logout!
-<<<<<<< HEAD
-    # session[:github_user] = nil
-    # session.delete :github_user
-    # session.delete(:message)
-    # session.clear
-    # session.destroy
-=======
     session[:github_user] = nil
     session.delete :github_user
     session.delete(:message)
     session.destroy
     session.clear
->>>>>>> 5f8a0eb... fixes
     p "the session is:",session
     # binding.pry
   end
