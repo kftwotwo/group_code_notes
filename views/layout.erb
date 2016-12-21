@@ -27,10 +27,11 @@
       </div>
       <!-- Grey navigation panel -->
       <div class="languages">
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="img/ruby-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="img/html-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="img/css-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="JAVASCRIPT"><i class="medium material-icons top"><img src="img/js-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="/img/css-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="JAVASCRIPT"><i class="medium material-icons top"><img src="/img/js-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="/img/ruby-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Favorite"><i class="medium material-icons top"><img src="/img/fav-icon.png"></i></a>
       </div>
     </div>
     <div class="col s3 myfolders">
@@ -38,11 +39,11 @@
         <br>
       </div> <center>
         <div class="logo">
-          <h5>Coding Notes</h5> <br>
+          <a href="/"><h5>Code Snippets</h5></a><br>
         </div>
-      <div class="chip">
-        <img src="<%= current_github_avatar %>" alt="Contact Person">
-        <%= current_github_username %>
+      <div class="chip">Welcome:
+         <a href="/" onMouseOver="Materialize.toast('Update Settings', 2000)"><img src="<%= current_github_avatar %>" alt="Contact Person">
+        <%= current_github_username %> </a>
       </div>
     </center>
 
@@ -50,7 +51,8 @@
       <% if @folders.any?() %>
           <% @folders.each() do |folder| %>
           <li>
-            <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></div>
+            <div class="collapsible-header blue-grey lighten-4 ">
+              <i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons right">mode_edit</i></a></div>
               <% if @snippets.any?() %>
                   <% @snippets.each() do |snippet| %>
                 <div class="collapsible-body blue-grey lighten-3 ">
@@ -72,15 +74,17 @@
     </ul>
 
     <div id="logout-button">
-      <a class="waves-effect waves-light btn red" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
+      <a class="waves-effect waves-light btn darkblue" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
     </div>
   </div>
+
 
     <div class="col s8 8 mycont">
       <div class="">
         <br>
       </div>
   <%= yield %>
+
     </div>
   <% else %>
   <div class="back">
@@ -98,11 +102,9 @@
   <% end %>
 
 
-
-
   <!-- Kevin's modal -->
-  <div class="fixed-action-btn horizontal click-to-toggle">
-    <a class="btn-floating btn-large red">
+  <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
+    <a class="btn-floating btn-large red" onMouseOver="Materialize.toast('Create New Folders and Snippets', 3000)">
       <i class="material-icons">menu</i>
     </a>
     <ul>
@@ -117,8 +119,8 @@
       <div class="modal-header">
         <div class="row">
           <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
-            <h4><b>New Foler</b></h4>
+            <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
+            <h4><b>New Folder</b></h4>
           </div>
         </div>
       </div>
@@ -130,7 +132,7 @@
                 <input id="name" name="name" type="text" required>
                 <label for="name"><b>Name</b></label>
               </div>
-              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
+              <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button>
             </div>
           </div>
         </div>
@@ -214,6 +216,10 @@
       </div>
     </div>
   </div>
+
+  <footer class="page-footer">
+    <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance -  <a href="https://github.com/DiegoSPB/coding_notes"><w>View on Github</w></a></p></span>
+  </footer>
 
 
 
