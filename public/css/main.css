@@ -1,18 +1,14 @@
-
 body {
   background-color: #f5f5f5;
   margin-bottom: 20px;
 }
-
 h5 {
   color: #fff;
 }
-
 w {
   color: #fff;
   font-weight: bold;
 }
-
 .languages{
   margin-top: 50%;
 }
@@ -50,7 +46,6 @@ w {
   height: 100%;
   overflow: visible;
 }
-
 img {
   margin-top: 35%;
 }
@@ -58,9 +53,9 @@ img {
   margin-top: 25px;
 }
 #logout-button {
- position: absolute;
- bottom: 4.5em;
- left: 134px;
+  position: absolute;
+  bottom: 4.5em;
+  left: 134px;
 }
 .welcome{
   color: #888;
@@ -77,7 +72,9 @@ img {
   background-color: #fff;
   box-shadow: 2px 2px 2px #999;
 }
-
+.darkblue-text {
+ color: #37474f;
+}
 .darkblue {
  background-color: #37474f;
 }
@@ -103,7 +100,6 @@ img {
 .custom-button:visited{
   background-color: #607d8b;
 }
-
 .page-footer {
   position: fixed;
   z-index: 5;
@@ -114,7 +110,6 @@ img {
 .bottom-push {
   bottom: 4.5em;
 }
-
 .home-content {
   font-style: italic;
   color: #999;
@@ -128,7 +123,32 @@ img {
 .import {
   text-align: center;
 }
-
 .search-center {
-    text-align: center;
+  text-align: center;
+}
+#textarea1{
+  height: 130px;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px #888;
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.input-field input[type=text]:focus + label {
+  color: #37474f;
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #37474f;
+  box-shadow: 0 1px 0 0 #37474f;
+}
+.up {
+  margin-top:-25px;
+}
+.chips {
+  /*margin-top:-30px;*/
+  padding-bottom: -40px;
+}
+.modal-body {
+  overflow: hidden;
 }

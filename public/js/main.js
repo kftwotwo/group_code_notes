@@ -12,9 +12,7 @@ $(document).ready(function(){
     $('.modal-trigger').leanModal();{}
     $('select').material_select('open');
     $('.chips').material_chip({
-      data: [{
-          tag: 'Enter Here',
-        }]
+
       });
 
 
