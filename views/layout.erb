@@ -17,11 +17,12 @@ function openWin() {
   </head>
   <body>
     <% if authenticated? %>
-      <%= erb :sidebar_nav %>
-
-      <div class="col s8 mycont"><br>
-        <%= yield %>
-      </div>
+      <div class="row">
+        <%= erb :sidebar_nav %>
+        <div class="col s8 mycont"><br>
+          <%= yield %>
+        </div>
+    </div> <!-- close row-->
     <% else %> <!-- else for authentication -->
       <div class="back">
         <div class="container">
