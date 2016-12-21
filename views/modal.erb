@@ -31,25 +31,46 @@
             <div class="input-field col s12 m12">
               <input id="name" name="name" type="text" required>
               <label for="name"><b>Name</b></label>
-              <div class="input-field col s6" id="scrollable">
-                <select name="selected-language">
-                  <option value="html">HTML</option>
-                  <option value="css">CSS</option>
-                  <option value="javascript">Javascript</option>
-                  <option value="ruby">Ruby</option>
-                  <option value="favorites">Favorites</option>
-                  <option value="uncategorized" selected>Uncategorized</option>
-                </select>
-                <label>Select a Language</label>
-              </div>
-            </div>
-            <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button>
+              
+             </div> <!-- input field end -->
+<div class="col s12">
+  <label>Select a Language</label>
+<form action="#">
+  <p>
+      <input name="selected-language" value="html" type="radio" id="html" />
+      <label for="html">HTML</label>
+
+      <input name="selected-language" value="css" type="radio" id="css" />
+      <label for="css">CSS</label>
+
+      <input name="selected-language" value="javascript" type="radio" id="javascript"/>
+      <label for="javascript">Javascript</label>
+
+      <input name="selected-language" value="ruby" type="radio" id="ruby"/>
+      <label for="ruby">Ruby</label>
+
+      <input name="selected-language" value="favorites" type="radio" id="favorites"/>
+      <label for="favorites">Favorites</label>
+
+      <input name="selected-language" value="uncategorized" type="radio" id="uncategorized" checked="checked" />
+      <label for="uncategorized">Uncategorized</label>
+    </p>
+
+  </div> <!-- col end -->
+
+            <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button><br><br>
+</form>
+
           </div>
         </div>
       </div>
     </form>
   </div>
 </div>
+
+
+
+
 
 <div id="new_snippet" class="modal modal-form">
   <div class="modal-content">

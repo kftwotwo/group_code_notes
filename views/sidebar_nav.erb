@@ -25,8 +25,8 @@
     </div>
   </center>
 
-
-  <center> <%= @language %></center>
+<br>
+  <center><span class="language-title"><%= $language.upcase() %></span></center><br>
   <ul class="collapsible" data-collapsible="accordion">
     <% if @folders.any?() %>
       <% @folders.each() do |folder| %>

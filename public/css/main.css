@@ -186,3 +186,10 @@ overflow: scroll;
 .material-icons{
   color: #607d8b;
 }
+.language-title {
+  color: #fff;
+  font-size: 1em;
+}
+.input-field label.active {
+  transform: translateY(0);
+}
