@@ -1,238 +1,50 @@
 <html>
-<head>
-  <title></title>
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="/css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
-  <link href="/css/jquery-linedtextarea.css" type="text/css" rel="stylesheet" />
-  <script>
-  function openWin() {
-      window.open("http://www.github.com/logout");
-  }
-</script>
-</head>
-<body>
-
-  <% if authenticated? %>
-  <div class="row">
-    <div class="col s1 mynav">
-      <div class="">
-        <br>
-        <br>
-        <br>
-      </div>
-      <!-- Grey navigation panel -->
-      <div class="languages">
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="/img/css-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="JAVASCRIPT"><i class="medium material-icons top"><img src="/img/js-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="/img/ruby-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Favorite"><i class="medium material-icons top"><img src="/img/fav-icon.png"></i></a>
-      </div>
-    </div>
-    <div class="col s3 myfolders">
-      <div class="">
-        <br>
-      </div> <center>
-        <div class="logo">
-          <a href="/"><h5>Code Snippets</h5></a><br>
+  <head>
+    <title></title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
+    <link href="/css/jquery-linedtextarea.css" type="text/css" rel="stylesheet"/>
+    <script>
+function openWin() {
+  window.open("http://www.github.com/logout");
+}
+    </script>
+  </head>
+  <body>
+    <% if authenticated? %>
+      <div class="row">
+        <%= erb :sidebar_nav %>
+        <div class="col s8 mycont"><br>
+          <%= yield %>
         </div>
-      <div class="chip">Welcome:
-         <a href="/" onMouseOver="Materialize.toast('Update Settings', 2000)"><img src="<%= current_github_avatar %>" alt="Contact Person">
-        <%= current_github_username %> </a>
-      </div>
-    </center>
-
-    <ul class="collapsible" data-collapsible="accordion">
-      <% if @folders.any?() %>
-          <% @folders.each() do |folder| %>
-            <li>
-              <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i><%= folder.name %>
-                <a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a>
-              </div>
-              <% if folder.snippets.any?() %>
-                <% folder.snippets.each() do |snippet| %>
-                  <div class="collapsible-body blue-grey lighten-3 ">
-                    <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>">
-                      <i class="material-icons">code</i><%= snippet.title %></a>
-                    </div>
-                  </div>
-                <% end %>
-              <% else %>
-                <div class="collapsible-body blue-grey lighten-3 ">
-                  <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>">
-                    <i class="material-icons">code</i><%= snippet.title %><a href="/snippet/<%= snippet.id %>/edit">
-                    <i class="material-icons">mode_edit</i></a></a>
-                  </div>
-                </div>
-              <% end %>
-            <% else %>
-              <div class="collapsible-body blue-grey lighten-3 ">
-                <div class="collapsible-header blue-grey lighten-4 ">
-                  <i class="material-icons">not_interested</i>No Snippet</a>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        <% end %>
-      <% else %>
-        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
-      <% end %>
-    </ul>
-
-    <div id="logout-button">
-      <a class="waves-effect waves-light btn darkblue" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
-    </div>
-  </div>
-
-
-    <div class="col s8 8 mycont">
-      <div class="">
-        <br>
-      </div>
-  <%= yield %>
-
-    </div>
-  <% else %>
-  <div class="back">
-    <div class="container">
-        <div class="row">
+    </div> <!-- close row-->
+    <% else %> <!-- else for authentication -->
+      <div class="back">
+        <div class="container">
+          <div class="row">
             <div class="col-md-12 centerIt">
               <div class="wrap">
-                  <a href="/login" class="waves-effect waves-light btn brown darken-3">Sign in with GitHub</a>
+                <a href="/login" class="waves-effect waves-light btn brown darken-3">Sign in with GitHub</a>
               </div>
             </div>
-        </div>
-    </div>
-  </div>
-
-  <% end %>
-
-  <!-- Kevin's modal -->
-  <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
-    <a class="btn-floating btn-large red" onMouseOver="Materialize.toast('Create New Folders and Snippets', 3000)">
-      <i class="material-icons">menu</i>
-    </a>
-    <ul>
-      <li><a class="btn-floating blue modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder" href="#new_folder"><i class="material-icons">library_add</i></a></li>
-      <li><a class="btn-floating purple modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new_snippet"><i class="material-icons">note_add</i></a></li>
-    </ul>
-  </div>
-
-  <!-- folder form -->
-  <div id="new_folder"class="modal modal-form">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="row">
-          <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
-            <h4><b>New Folder</b></h4>
           </div>
         </div>
       </div>
-      <form action="/new_folder" method="post">
-        <div class="row">
-          <div class="col s12">
-            <div class="row">
-              <div class="input-field col s12 m12">
-                <input id="name" name="name" type="text" required>
-                <label for="name"><b>Name</b></label>
-              </div>
-              <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button>
-            </div>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>
+    <% end %> <!-- close authentication -->
 
-  <div id="new_snippet" class="modal modal-form">
-    <div class="modal-content">
-      <div class="modal-header">
-        <div class="row">
-          <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
-            <h4><b>New Snippet</b></h4>
-          </div>
-        </div>
-      </div>
-      <div class="modal-body">
-        <form  action="/new_snippet" method="post">
-          <div class="row">
-            <div class="col s12">
-              <div class="row">
-                <div class="input-field col s12 m12">
-                  <input id="title" name="title" type="text" required>
-                  <label for="title"><b>Title</b></label>
-                </div>
-                <div class="input-field col s12 m6">
-                  <div class="chips" name='tags'>
-                  </div>
-                </div>
-                <div class="input-field col s12 m6">
-                  <input id="description" name="description" type="text" required>
-                  <label for="description"><b>Description</b></label>
-                </div>
-                <div class="input-field col s12">
-                  <textarea id="textarea1" class="lined" name='content'>
-                  def enter_code
-                    puts('here')
-                  end
-                  </textarea>
-                </div>
-                <div class="input-field col s6">
-                  <select>
-                    <option disabled selected>Select a Language</option>
-                    <option value="1">Ruby</option>
-                    <option value="2">HTML</option>
-                    <option value="3">CSS</option>
-                    <option value="4">Javascript</option>
-                  </select>
-                  <label>Langauge</label>
-                </div>
-                <div class="input-field col s6">
-                  <select name="folder_id">
-                    <option value="" disabled selected>Choose a Folder</option>
-                    <% if @folders.any? %>
-                      <% @folders.each do |folder| %>
-                      <option value="<%= folder.id %>"> <%= folder.name %></option>
-                      <% end %>
-                    <% end %>
-                  </select>
-                  <label>Folder</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="switch">
-                  <label>
-                    Public (off)
-                    <input type="checkbox" name="public">
-                    <span class="lever"></span>
-                    Private (on)
-                  </label>
-                </div>
-              </div>
-              <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+    <%= erb :modal %>
+    <%= erb :footer %>
 
-  <footer class="page-footer">
-    <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance -  <a href="https://github.com/DiegoSPB/coding_notes"><w>View on Github</w></a></p></span>
-  </footer>
-
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="jquery-linedtextarea.js"></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
-  <script src="/js/main.js"></script>
-  <script src="/js/jquery-linedtextarea.js"></script>
-</body>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="jquery-linedtextarea.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/js/materialize.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/jquery-linedtextarea.js"></script>
+  </body>
 </html>
