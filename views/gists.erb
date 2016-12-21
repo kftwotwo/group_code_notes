@@ -1,7 +1,12 @@
-
-<%= current_github_username %>
-<% import_gists() %>
-<%= Snippet.all.to_a %>
+<% if Snippet.all.any? %>
+  <% Snippet.all.each do |snippet| %>
+    <%= snippet.title != nil ? snippet.title : "N/A" %>
+    <%= snippet.description != nil ? snippet.description : "N/A" %>
+    <%= snippet.language != nil ? snippet.language : "N/A" %><br>
+  <% end %>
+<% else %>
+  No snippets
+<% end %>
 
 
 
