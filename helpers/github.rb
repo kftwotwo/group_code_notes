@@ -16,7 +16,7 @@ helpers do
     response = HTTParty.get("https://api.github.com#{api_path}",
                             headers: {"Accept" => "application/json",
                                       "Authorization" => "token #{current_github_auth_token}",
-                                      "User-Agent" => "diego's app"
+                                      "User-Agent" => "coding_notes"
                             })
     JSON.parse(response.body)
   end
