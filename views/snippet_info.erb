@@ -3,4 +3,8 @@ Description: <%= @snippet.description %><br>
 Tags: <%= @snippet.tags %><br>
 language: <%= @snippet.language %><br><br>
 
-<a href="/snippet/<%= @snippet.id %>/edit"><button type="button" class="btn green">Update</button></a>
+<a href="/snippet/<%= @snippet.id %>/edit"><button type="button" class="btn green">Update</button></a><br><br>
+<form action="/snippet/<%= @snippet.id %>/edit" method="post" class="left delete-form">
+ <input name="_method" type="hidden" value="delete">
+ <button type="submit" class="btn red right">Delete</button>
+</form>

@@ -90,3 +90,8 @@ patch '/snippet/:id/edit' do
   @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true})
   redirect '/'
 end
+
+delete '/snippet/:id/edit' do
+  Snippet.find(params['id'].to_i).destroy
+  redirect '/'
+end

@@ -15,7 +15,7 @@
   <button type="submit" class="btn green">Update</button>
 </form>
 
-<form action="/folder/<%= @snippet.id %>" method="post" class="left delete-form">
+<form action="/snippet/<%= @snippet.id %>/edit" method="post" class="left delete-form">
  <input name="_method" type="hidden" value="delete">
  <button type="submit" class="btn red right">Delete</button>
 </form>
