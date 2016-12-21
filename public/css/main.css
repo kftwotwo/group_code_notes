@@ -1,6 +1,7 @@
 
 body {
   background-color: #f5f5f5;
+  margin-bottom: 20px;
 
 }
 
@@ -18,7 +19,7 @@ body {
   max-width: 230px;
   min-width: 230px;
   background-color: #607d8b;
-  overflow: hidden;
+  overflow: auto;
   height:100vh;
 }
 .rounded{
@@ -46,9 +47,44 @@ img {
 }
 #logout-button {
  position: absolute;
- bottom: 1.4em;
+ bottom: 4.5em;
  left: 134px;
 }
 .logo{
   color: white;
+}
+.side {
+  right: 30px;
+}
+
+.custom-button{
+  background-color: #607d8b;
+}
+.custom-button:hover {
+  background-color: #37474f;
+}
+.custom-button:active{
+  background-color: #000;
+}
+.custom-button:visited{
+  background-color: #607d8b;
+}
+
+.page-footer {
+  position: fixed;
+  z-index: 5;
+  bottom: 0px;
+  width: 100%;
+  max-height: 50px;
+}
+
+.footer-text {
+  color: #fff;
+  font-size: .8em;
+  text-align:center;
+  margin-bottom: 110px;
+}
+
+.bottom-push {
+   bottom: 4.5em;
 }

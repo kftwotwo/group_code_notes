@@ -21,3 +21,7 @@ $(document).ready(function(){
 var chip = {
     tag: 'chip content',
   };
+
+// 
+// // Materialize.toast(message, displayLength, className, completeCallback);
+//   Materialize.toast('Updated', 4000) // 4000 is the duration of the toast

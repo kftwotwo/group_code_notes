@@ -27,10 +27,11 @@
       </div>
       <!-- Grey navigation panel -->
       <div class="languages">
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="img/ruby-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="img/html-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="img/css-icon.png"></i></a>
-        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="JAVASCRIPT"><i class="medium material-icons top"><img src="img/js-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="/img/css-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="JAVASCRIPT"><i class="medium material-icons top"><img src="/img/js-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="/img/ruby-icon.png"></i></a>
+        <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Favorite"><i class="medium material-icons top"><img src="/img/fav-icon.png"></i></a>
       </div>
     </div>
     <div class="col s3 myfolders">
@@ -50,7 +51,8 @@
       <% if @folders.any?() %>
           <% @folders.each() do |folder| %>
           <li>
-            <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></div>
+            <div class="collapsible-header blue-grey lighten-4 ">
+              <i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons right">mode_edit</i></a></div>
               <% if @snippets.any?() %>
                   <% @snippets.each() do |snippet| %>
                 <div class="collapsible-body blue-grey lighten-3 ">
@@ -76,11 +78,13 @@
     </div>
   </div>
 
+
     <div class="col s8 8 mycont">
       <div class="">
         <br>
       </div>
   <%= yield %>
+
     </div>
   <% else %>
   <div class="back">
@@ -98,10 +102,8 @@
   <% end %>
 
 
-
-
   <!-- Kevin's modal -->
-  <div class="fixed-action-btn horizontal click-to-toggle">
+  <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
     <a class="btn-floating btn-large red">
       <i class="material-icons">menu</i>
     </a>
@@ -118,7 +120,7 @@
         <div class="row">
           <div class="col s12">
             <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
-            <h4><b>New Foler</b></h4>
+            <h4><b>New Folder</b></h4>
           </div>
         </div>
       </div>
@@ -214,6 +216,10 @@
       </div>
     </div>
   </div>
+
+  <footer class="page-footer">
+    <span class=footer-text><p>2016-2017 - All rights reserved by Diego Suarez, Kevin Finley,  Joshua Rinard, Getro Naissance</p></span>
+  </footer>
 
 
 
