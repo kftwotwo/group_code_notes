@@ -50,26 +50,29 @@
     <ul class="collapsible" data-collapsible="accordion">
       <% if @folders.any?() %>
           <% @folders.each() do |folder| %>
-          <li>
-            <div class="collapsible-header blue-grey lighten-4 ">
-              <i class="material-icons">web</i><%= folder.name %><a href="/folder/<%= folder.id %>"><i class="material-icons right">mode_edit</i></a></div>
-              <% if @snippets.any?() %>
-                  <% @snippets.each() do |snippet| %>
-                <div class="collapsible-body blue-grey lighten-3 ">
-                  <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.name %></a></div>
-                </div>
-            <% end %>
-            <% else %>
-              <div class="collapsible-body blue-grey lighten-3 ">
-                <div class="collapsible-header blue-grey lighten-4 ">
-                  <i class="material-icons">not_interested</i>No Snippet</a>
-                </div>
+            <li>
+              <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">web</i><%= folder.name %>
+                <a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a>
               </div>
-          </li>
+              <% if folder.snippets.any?() %>
+                <% folder.snippets.each() do |snippet| %>
+                  <div class="collapsible-body blue-grey lighten-3 ">
+                    <div class="collapsible-header blue-grey lighten-4 "><a href="/snippet/<%= snippet.id %>">
+                      <i class="material-icons">code</i><%= snippet.title %></a>
+                    </div>
+                  </div>
+                <% end %>
+              <% else %>
+                <div class="collapsible-body blue-grey lighten-3 ">
+                  <div class="collapsible-header blue-grey lighten-4 ">
+                    <i class="material-icons">not_interested</i>No Snippet</a>
+                  </div>
+                </div>
+            </li>
           <% end %>
         <% end %>
       <% else %>
-          <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
       <% end %>
     </ul>
 
@@ -175,7 +178,7 @@
                 </div>
                 <div class="input-field col s6">
                   <select>
-                    <option value="" disabled selected>Select a Language</option>
+                    <option disabled selected>Select a Language</option>
                     <option value="1">Ruby</option>
                     <option value="2">HTML</option>
                     <option value="3">CSS</option>

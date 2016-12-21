@@ -28,7 +28,6 @@ end
 
 before do
   @folders = Folder.all
-  @snippets = Snippet.all
 end
 
 get '/' do
@@ -64,4 +63,10 @@ post('/new_snippet') do
   snippet_description = params[:description]
   snippet_content = params[:content]
   snippet_tags = params[:tags]
+  folder_id = params[:folder_id]
+  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true)
+  @folder = Folder.find(folder_id)
+  @folder.snippets.push(new_snippet)
+  p @folder.snippets
+  redirect '/'
 end
