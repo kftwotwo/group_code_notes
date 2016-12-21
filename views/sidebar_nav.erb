@@ -1,0 +1,68 @@
+<div class="row">
+  <div class="col s1 mynav">
+    <br><br><br>
+    <!-- Grey navigation panel -->
+    <div class="languages">
+      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="HTML"><i class="medium material-icons top"><img src="/img/html-icon.png"></i></a>
+      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="CSS"><i class="medium material-icons top"><img src="/img/css-icon.png"></i></a>
+      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="JAVASCRIPT"><i class="medium material-icons top"><img src="/img/js-icon.png"></i></a>
+      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Ruby"><i class="medium material-icons top"><img src="/img/ruby-icon.png"></i></a>
+      <a class="btn-floating btn-large waves-effect waves-light red top tooltipped space" data-position="right" data-delay="50" data-tooltip="Favorite"><i class="medium material-icons top"><img src="/img/fav-icon.png"></i></a>
+    </div>
+  </div>
+
+  <div class="col s3 myfolders">
+    <br>
+    <center>
+      <div class="logo">
+        <a href="/"><h5>Code Snippets</h5></a><br>
+      </div>
+      <div class="chip">Welcome:
+        <a href="/" onMouseOver="Materialize.toast('Update Settings', 2000)"><img src="<%= current_github_avatar %>" alt="Contact Person">
+          <%= current_github_username %></a>
+      </div>
+    </center>
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <% if @folders.any?() %>
+        <% @folders.each() do |folder| %>
+          <li>
+            <div class="collapsible-header blue-grey lighten-4">
+              <i class="material-icons">web</i><%= folder.name %>
+            <a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a>
+            </div>
+            <% if folder.snippets.any?() %>
+              <% folder.snippets.each() do |snippet| %>
+                <div class="collapsible-body blue-grey lighten-3">
+                  <div class="collapsible-header blue-grey lighten-4">
+                    <a href="/snippet/<%= snippet.id %>">
+                      <i class="material-icons">code</i><%= snippet.title %>
+                  </a>
+                  </div>
+                </div>
+                <div class="collapsible-body blue-grey lighten-3">
+                  <div class="collapsible-header blue-grey lighten-4">
+                    <a href="/snippet/<%= snippet.id %>"><i class="material-icons">code</i><%= snippet.title %></a>
+                    <a href="/snippet/<%= snippet.id %>/edit"><i class="material-icons">mode_edit</i></a>
+                  </div>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="collapsible-body blue-grey lighten-3">
+                <div class="collapsible-header blue-grey lighten-4">
+                  <span><i class="material-icons">not_interested</i>No Snippet</span>
+                </div>
+              </div>
+            <% end %>
+          </li>
+        <% end %>
+      <% else %>
+        <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
+      <% end %>
+    </ul>
+
+    <div id="logout-button">
+      <a class="waves-effect waves-light btn darkblue" href="https://www.github.com/logout?continue=https://localhost:4567">Log Out</a>
+    </div>
+  </div> <!-- close sub folder div -->
+</div> <!-- close row-->

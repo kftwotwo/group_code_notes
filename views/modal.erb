@@ -1,0 +1,115 @@
+<!-- Kevin's modal -->
+<div class="fixed-action-btn horizontal click-to-toggle bottom-push">
+  <a class="btn-floating btn-large red" onMouseOver="Materialize.toast('Create New Folders and Snippets', 3000)">
+    <i class="material-icons">menu</i>
+  </a>
+  <ul>
+    <li>
+      <a class="btn-floating blue modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder" href="#new_folder"><i class="material-icons">library_add</i></a>
+    </li>
+    <li>
+      <a class="btn-floating purple modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new_snippet"><i class="material-icons">note_add</i></a>
+    </li>
+  </ul>
+</div>
+
+<!-- folder form -->
+<div id="new_folder"class="modal modal-form">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="row">
+        <div class="col s12">
+          <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
+          <h4><b>New Folder</b></h4>
+        </div>
+      </div>
+    </div>
+    <form action="/new_folder" method="post">
+      <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s12 m12">
+              <input id="name" name="name" type="text" required>
+              <label for="name"><b>Name</b></label>
+            </div>
+            <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div id="new_snippet" class="modal modal-form">
+  <div class="modal-content">
+    <div class="modal-header">
+      <div class="row">
+        <div class="col s12">
+          <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
+          <h4><b>New Snippet</b></h4>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body">
+      <form  action="/new_snippet" method="post">
+        <div class="row">
+          <div class="col s12">
+            <div class="row">
+              <div class="input-field col s12 m12">
+                <input id="title" name="title" type="text" required>
+                <label for="title"><b>Title</b></label>
+              </div>
+              <div class="input-field col s12 m6">
+                <div class="chips" name='tags'>
+                </div>
+              </div>
+              <div class="input-field col s12 m6">
+                <input id="description" name="description" type="text" required>
+                <label for="description"><b>Description</b></label>
+              </div>
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="lined" name='content'>
+                def enter_code
+                  puts('here')
+                end
+                </textarea>
+              </div>
+              <div class="input-field col s6">
+                <select>
+                  <option disabled selected>Select a Language</option>
+                  <option value="1">Ruby</option>
+                  <option value="2">HTML</option>
+                  <option value="3">CSS</option>
+                  <option value="4">Javascript</option>
+                </select>
+                <label>Langauge</label>
+              </div>
+              <div class="input-field col s6">
+                <select name="folder_id">
+                  <option value="" disabled selected>Choose a Folder</option>
+                  <% if @folders.any? %>
+                    <% @folders.each do |folder| %>
+                      <option value="<%= folder.id %>"> <%= folder.name %></option>
+                    <% end %>
+                  <% end %>
+                </select>
+                <label>Folder</label>
+              </div>
+            </div> <!-- close row -->
+            <div class="row">
+              <div class="switch">
+                <label>
+                  Public (off)
+                  <input type="checkbox" name="public">
+                  <span class="lever"></span>
+                  Private (on)
+                </label>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light btn green" type="submit">Enter</button>
+          </div>
+        </div> <!-- close row -->
+      </form>
+    </div> <!-- close modal body -->
+  </div> <!-- close modal content-->
+</div> <!-- close id snippet-->
