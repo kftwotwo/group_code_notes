@@ -64,4 +64,10 @@ helpers do
     end
   end
 
+  def create_default_folders!
+      ["html", "css", "javascript", "ruby", "favorites", "uncategorized"].each do |language|
+        Folder.create(:name => "Default", :github_username => current_github_username, :language=>language)
+    end
+  end
+
 end

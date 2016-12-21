@@ -34,7 +34,8 @@ before do
   end
 end
 
-post '/import_gists' do
+post '/*/import_gists' do
+  create_default_folders!
   import_gists()
   erb(:gists)
 end
