@@ -17,7 +17,7 @@
     <div class="chip">Welcome:
       <a href="#settings" class="modal-trigger"><img src="<%= current_github_avatar %>" alt="Contact Person">
         <%= current_github_username %>
-        <i class="material-icons">settings</i></a>
+        <span class="settings-icon"><i class="material-icons">settings</i></a></span>
     </div>
   </center>
 
@@ -29,7 +29,7 @@
         <li>
           <div class="collapsible-header blue-grey lighten-4">
             <i class="material-icons">web</i><%= folder.name %>
-          <a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a>
+          <span class="edit-folder"><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></span>
           </div>
           <% if folder.snippets.any?() %>
             <% folder.snippets.each() do |snippet| %>

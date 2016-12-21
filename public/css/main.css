@@ -122,10 +122,11 @@ img {
 .home-content {
   font-style: italic;
   color: #999;
+  font-size: 0.6em;
   text-align: center;
 }
 .footer {
-  font-size: .8em;
+  font-size: 0.6em;
   text-align:center;
   margin-top: 400px;
 }
@@ -165,3 +166,12 @@ img {
 #scrollable {
 overflow: scroll;
 }*/
+
+.edit-folder {
+  float: right;
+}
+.settings-icon {
+  float: right;
+  margin-left: 20px;
+  margin-top:4px;
+}
