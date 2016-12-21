@@ -175,3 +175,10 @@ overflow: scroll;
   margin-left: 20px;
   margin-top:4px;
 }
+
+.home-button {
+  margin-left: 15px;
+}
+.material-icons{
+  color: #607d8b;
+}
