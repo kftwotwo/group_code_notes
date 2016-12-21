@@ -10,17 +10,6 @@
   <div class="welcome">
     <a href="/">Code Snippets Logo</a><br><br><br>
     Welcome <br>
-    language: <%= $language %>
-    <% if @folders.any? %>
-    <ul>
-    folders: <% @folders.each do |folder| %>
-      <li> <%= folder.name != nil ? folder.name : "N/A" %></li>
-      <% end %>
-    </ul>
-      <% else %>
-      No folders
-      <% end %>
-  </div>
   <div class="home-content">
     <p>Code Snippets allows you to save folders and snippets of code.</p>
     <br>
