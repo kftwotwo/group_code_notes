@@ -189,6 +189,6 @@ overflow: scroll;
   color: #fff;
   font-size: 1em;
 }
-.input-field label.active {
+.input-field label#dont{
   transform: translateY(0);
 }
