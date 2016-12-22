@@ -301,6 +301,7 @@ overflow: scroll;
   color: #263238;
 }
 
-.space2 {
-
-}
+.lead {
+  text-align: center;
+  font-family: cursive;
+  color: black;
