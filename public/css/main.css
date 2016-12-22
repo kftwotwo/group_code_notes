@@ -222,3 +222,8 @@ overflow: scroll;
 #search {
   margin-top: -35px;
 }
+
+.background {
+  background-color: #263238;
+  color: white;
+}
