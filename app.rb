@@ -51,6 +51,8 @@ end
 get '/language/:lang' do
   $language = params['lang']
   @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
+  @snippet = Snippet.all
+  @snippets = Snippet.order("created_at").last
   erb(:index)
 end
 
@@ -179,10 +181,4 @@ post("/search/results") do
   @folderSearch = Folder.search_by_title(params.fetch("name"))
   @snippetSearch = Snippet.search_by_title_tags_content_description(params.fetch("name"))
   erb(:resultPage)
-end
-
-get '/home' do
-  @snippet = Snippet.all
-  @snippets = Snippet.order("created_at").last
-  erb(:home)
 end
