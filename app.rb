@@ -117,7 +117,7 @@ post('/new_snippet') do
       @folder2.snippets.push(new_snippet)
     end
   end
-  redirect '/language/'+$language
+  redirect '/snippet/'+ new_snippet.id.to_s
 end
 
 get '/snippet/:id' do
