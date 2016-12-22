@@ -55,8 +55,12 @@ get '/language/:lang' do
 end
 
 get '/' do
+  if authenticated?
   $language = "uncategorized"
-  redirect 'language/favorites'
+  redirect '/language/favorites'
+  else
+  erb(:index)
+  end
 end
 #
 post '/new_folder' do
