@@ -101,8 +101,14 @@ post('/new_snippet') do
     create_new_gist(snippet_content, snippet_title, snippet_public, snippet_description)
   end
   if snippet_favorite
-    @folder2 = Folder.find_by(:langauge=>"favorites")
-    @folder2.snippets.push(new_snippet)
+    if Folder.find_by(:language=>"favorites") == nil
+      Folder.create(:name => "Default", :github_username => current_github_username, :language=>"favorites")
+      @folder2 = Folder.find_by(:language=>"favorites")
+      @folder2.snippets.push(new_snippet)
+    else
+      @folder2 = Folder.find_by(:language=>"favorites")
+      @folder2.snippets.push(new_snippet)
+    end
   end
   redirect '/language/'+$language
 end
@@ -130,10 +136,14 @@ patch '/snippet/:id/edit' do
   @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :comments => snippet_comments})
   if snippet_favorite
     @folder2 = Folder.find_by(:language=>"favorites")
-    if @folder2.snippets.exists?(@snippet)
-      p "nada"
+    if @folder2 != nil
+      if @folder2.snippets.exists?(@snippet)
+        p "nada"
+      else
+        @folder2.snippets.push(@snippet)
+      end
     else
-      @folder2.snippets.push(@snippet)
+        Folder.create(:name => "Default", :github_username => current_github_username, :language=>"favorites")
     end
   end
   redirect '/language/'+$language
