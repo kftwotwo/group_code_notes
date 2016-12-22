@@ -240,3 +240,8 @@ overflow: scroll;
   padding-right: 10% !important;
   float: right !important;
 }
+
+.sticky-search {
+  position: fixed;
+  min-width: 56% !important;
+}
