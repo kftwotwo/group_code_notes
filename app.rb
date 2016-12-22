@@ -51,8 +51,6 @@ end
 get '/language/:lang' do
   $language = params['lang']
   @folders = Folder.where("language = '#{$language}' AND github_username = '#{current_github_username}'")
-  @snippets = Snippet.order("created_at").last
-  @snippet = Snippet.all
   erb(:index)
 end
 
