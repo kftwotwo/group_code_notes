@@ -37,12 +37,12 @@ end
 post '/*/import_gists' do
   create_default_folders!
   import_gists()
-  erb(:gists)
+  redirect '/language/'+$language
 end
 post '/import_gists' do
   create_default_folders!
   import_gists()
-  erb(:gists)
+  redirect '/language/'+$language
 end
 
 get '/language/:lang' do
@@ -94,11 +94,21 @@ post('/new_snippet') do
   snippet_favorite = params[:add_to_fav]
   # snippet_tags = params[:tags]
   folder_id = params[:folder_id]
-  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :github_username => current_github_username, :language=>params['selected-language'],:description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :gist_save => snippet_save_git)
+  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :github_username => current_github_username, :language=>$language,:description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :gist_save => snippet_save_git)
   @folder = Folder.find(folder_id)
   @folder.snippets.push(new_snippet)
   if snippet_save_git
     create_new_gist(snippet_content, snippet_title, snippet_public, snippet_description)
+  end
+  if snippet_favorite
+    if Folder.find_by(:language=>"favorites") == nil
+      Folder.create(:name => "Default", :github_username => current_github_username, :language=>"favorites")
+      @folder2 = Folder.find_by(:language=>"favorites")
+      @folder2.snippets.push(new_snippet)
+    else
+      @folder2 = Folder.find_by(:language=>"favorites")
+      @folder2.snippets.push(new_snippet)
+    end
   end
   redirect '/language/'+$language
 end
@@ -118,9 +128,25 @@ patch '/snippet/:id/edit' do
   snippet_title = params['update_title']
   snippet_description = params['update_description']
   snippet_content = params['update_content']
+  snippet_comments = params['update_comments']
   snippet_tags = params['update_tag']
-  @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true})
-  redirect '/language/'+$language
+  snippet_public = params[:public]
+  snippet_save_git = params[:save_git]
+  snippet_favorite = params[:add_to_fav]
+  @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :comments => snippet_comments})
+  if snippet_favorite
+    @folder2 = Folder.find_by(:language=>"favorites")
+    if @folder2 != nil
+      if @folder2.snippets.exists?(@snippet)
+        p "nada"
+      else
+        @folder2.snippets.push(@snippet)
+      end
+    else
+        Folder.create(:name => "Default", :github_username => current_github_username, :language=>"favorites")
+    end
+  end
+  redirect '/snippet/'+params["id"]+'/edit'
 end
 
 get '/snippet/:id/delete' do
