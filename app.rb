@@ -89,12 +89,14 @@ post('/new_snippet') do
   snippet_title = params[:title]
   snippet_description = params[:description]
   snippet_content = params[:content]
-  snippet_tags = params[:tags]
+  snippet_public = params[:public]
+  snippet_save_git = params[:save_git]
+  snippet_favorite = params[:add_to_fav]
+  # snippet_tags = params[:tags]
   folder_id = params[:folder_id]
-  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => current_github_username, :language=>params['selected-language'],:description => snippet_description, :public => true)
+  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :github_username => current_github_username, :language=>params['selected-language'],:description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :gist_save => snippet_save_git)
   @folder = Folder.find(folder_id)
   @folder.snippets.push(new_snippet)
-  p @folder.snippets
   redirect '/'
 end
 
