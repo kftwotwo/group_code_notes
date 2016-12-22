@@ -63,7 +63,12 @@ get '/folder/:id' do
   erb(:folder)
 end
 
-delete '/folder/:id' do
+get '/folder/:id/delete' do
+  @folder = Folder.find(params["id"].to_i)
+  erb(:delete_folder)
+end
+
+delete '/folder/:id/delete' do
   Folder.find(params["id"].to_i).destroy
   redirect '/'
 end

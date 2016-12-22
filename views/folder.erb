@@ -5,7 +5,4 @@
   <button onclick="Materialize.toast('Updated', 4000)" type="submit" class="btn custom-button waves-effect waves-light">Update</button>
 </form>
 
-<form action="/folder/<%= @folder.id %>" method="post" class="left delete-form">
- <input name="_method" type="hidden" value="delete">
- <button type="submit" class="btn red right">Delete</button>
-</form>
+<a href="/folder/<%= @folder.id %>/delete" class="btn red">Delete</a>
