@@ -227,3 +227,13 @@ overflow: scroll;
   background-color: #607d8b;
   color: white;
 }
+
+.sticky-bar {
+  position: fixed;
+}
+
+.float-fix {
+  position: relative;
+  padding-right: 10% !important;
+  float: right !important;
+}

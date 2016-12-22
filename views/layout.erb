@@ -20,7 +20,7 @@ function openWin() {
     <% if authenticated? %>
       <div class="row">
         <%= erb :sidebar_nav %>
-        <div class="col s4 m5 l8" id="yield"><br>
+        <div class="col s4 m5 l8 float-fix" id="yield"><br>
           <%= yield %>
         </div> <!-- close row-->
       </div>
