@@ -245,3 +245,13 @@ overflow: scroll;
   position: fixed;
   min-width: 56% !important;
 }
+
+.newSnippet { width: 80% !important ; max-height: 120% !important ; overflow-y: hidden !important ;
+}
+
+.newSettings { width: 30% !important ; max-height: 120% !important ; overflow-y: hidden !important ;
+}
+
+.lightblue-text a {
+  color: #263238;
+}
