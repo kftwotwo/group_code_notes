@@ -53,7 +53,7 @@ end
 
 get '/' do
   $language = "uncategorized"
-  erb :index
+  redirect 'language/favorites'
 end
 #
 post '/new_folder' do

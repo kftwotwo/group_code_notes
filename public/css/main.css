@@ -227,3 +227,5 @@ overflow: scroll;
   background-color: #263238;
   color: white;
 }
+
+.newSnippet { width: 80% !important ; max-height: 120% !important ; overflow-y: hidden !important ;}

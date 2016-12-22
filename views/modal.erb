@@ -35,7 +35,6 @@
 
             <div class="col s12">
               <label>Select a Language</label>
-
                 <p>
                   <input name="selected-language" value="html" type="radio" id="html" />
                   <label for="html">HTML</label>
@@ -56,65 +55,72 @@
                   <label for="uncategorized">Uncategorized</label>
                 </p><br><br>
                   <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button><br><br>
-
             </div> <!-- col end -->
-
           </div>
         </div>
       </div>
     </form>
   </div>
 </div>
-
-
-
-
-
-<div id="new_snippet" class="modal modal-form">
+<div id="new_snippet" class="modal modal-form newSnippet">
   <div class="modal-content">
     <div class="modal-header">
       <div class="row">
         <div class="col s12">
           <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
-          <h4><b><span class="darkblue-text">New Snippet</span></b></h4>
+          <h3><b><span class="darkblue-text">New Snippet</span></b></h4>
         </div>
       </div>
     </div>
     <div class="modal-body">
       <form  action="/new_snippet" method="post">
         <div class="row">
-          <div class="col s12">
-            <div class="row">
-              <div class="input-field col s12 m6">
+          <div class="row">
+            <div class="col s6">
+            <div class="switch col s4">
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspPublic <br>
+              <label>
+                NO
+                <input type="checkbox" name="public">
+                <span class="lever"></span>
+                YES
+              </label>
+            </div>
+            <div class="switch col s4">
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspSave on Gists <br>
+              <label>
+                NO
+                <input type="checkbox" name="save_git">
+                <span class="lever"></span>
+                YES
+              </label>
+            </div>
+            <div class="switch col s4">
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFavorite <br>
+              <label>
+                NO
+                <input type="checkbox" name="add_to_fav">
+                <span class="lever"></span>
+                YES
+              </label>
+            </div>
+          </div>
+          <!-- <div class="col s6">
+            <div class="input-field col s6 m6 ">
+              <label for="">Enter Tags</label><br><br>
+              <div class="chips" name='tags'>
+              </div>
+            </div>
+          </div> -->
+          </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s6 m6">
                 <input id="title" name="title" type="text" required>
                 <label for="title"><b>Title</b></label>
-              </div>
-              <div class="input-field col s12 m6">
-                <input id="description" name="description" type="text" required>
-                <label for="description"><b>Description</b></label>
-              </div>
-              <div class="input-field col s12 m12 up">
-                <label for="">Enter Tags</label><br><br>
-                <div class="chips" name='tags'>
-                </div>
-              </div>
+                <div class=""><p>.</p>
 
-              <div class="input-field col s12">
-                <textarea id="textarea1" class="lined" name='content'>
-                def enter_code
-                  puts('here')
-                end
-                </textarea>
-              </div>
-              <div class="input-field col s6">
-                <select>
-                  <option value="ruby">Ruby</option>
-                  <option value="html">HTML</option>
-                  <option value="css">CSS</option>
-                  <option value="javascript">Javascript</option>
-                  <option value="uncategorized" selected>Uncategorized</option>
-                </select>
-                <label>Langauge</label>
+                </div>
               </div>
               <div class="input-field col s6">
                 <select name="folder_id">
@@ -127,66 +133,41 @@
                 </select>
                 <label>Folder</label>
               </div>
-
-                <!-- <label>Select a Language</label>
-
-                  <p>
-                    <input name="selected-language" value="html" type="radio" id="html" />
-                    <label for="html">HTML</label>
-
-                    <input name="selected-language" value="css" type="radio" id="css" />
-                    <label for="css">CSS</label>
-
-                    <input name="selected-language" value="javascript" type="radio" id="javascript"/>
-                    <label for="javascript">Javascript</label>
-
-                    <input name="selected-language" value="ruby" type="radio" id="ruby"/>
-                    <label for="ruby">Ruby</label>
-
-                    <input name="selected-language" value="favorites" type="radio" id="favorites"/>
-                    <label for="favorites">Favorites</label>
-
-                    <input name="selected-language" value="uncategorized" type="radio" id="uncategorized" checked="checked" />
-                    <label for="uncategorized">Uncategorized</label>
-                  </p>
-                    <button class="btn waves-effect waves-light btn custom-button" type="submit">Enter</button><br><br>
-
-             -->
-
-
-
-
-            <div class="row">
-              <div class="switch">
-                <label>
-                  Public (off)
-                  <input type="checkbox" name="public">
-                  <span class="lever"></span>
-                  Private (on)
-                </label>
-
-                <p>Save on Gist?</p>
-                <label>
-                  No
-                  <input type="checkbox" name="save_git">
-                  <span class="lever"></span>
-                  Yes
-                </label>
-
-                <p>Add to Favorites</p>
-                <label>
-                  No
-                  <input type="checkbox" name="add_to_fav">
-                  <span class="lever"></span>
-                  Yes
-                </label>
+              <div class="input-field col s12">
+                <textarea id="textarea1" class="lined" name='content'>
+                def enter_code
+                  puts('here')
+                end
+                </textarea>
               </div>
             </div>
-            <button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
+            <div class="row">
+              <div class="col s12 noscroll">
+                <label>Select a Language</label>
+                  <p>
+                    <input name="selected-language2" value="html2" type="radio" id="html2" />
+                    <label for="html2">HTML</label>
 
+                    <input name="selected-language2" value="css2" type="radio" id="css2" />
+                    <label for="css2">CSS</label>
 
-          </div><br><br>
+                    <input name="selected-language2" value="javascript2" type="radio" id="javascript2"/>
+                    <label for="javascript2">Javascript</label>
+
+                    <input name="selected-language2" value="ruby2" type="radio" id="ruby2"/>
+                    <label for="ruby2">Ruby</label>
+
+                    <input name="selected-language2" value="favorites2" type="radio" id="favorites2"/>
+                    <label for="favorites2">Favorites</label>
+
+                    <input name="selected-language2" value="uncategorized2" type="radio" id="uncategorized2" checked="checked" />
+                    <label for="uncategorized2">Uncategorized</label>
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
+              </div> <!-- col end -->
+            </div>
+          </div>
         </div> <!-- close row -->
+
       </form>
     </div> <!-- close modal body -->
   </div> <!-- close modal content-->
