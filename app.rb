@@ -182,6 +182,7 @@ post("/search/results") do
 end
 
 get '/home' do
-  @snippets = Snippet.where("created_at < ?", 2.days.ago)
+  @snippet = Snippet.all
+  @snippets = Snippet.order("created_at").last
   erb(:home)
 end
