@@ -176,6 +176,7 @@ get("/search/results") do
 end
 
 post("/search/results") do
+  @query = params.fetch("name")
   @folderSearch = Folder.search_by_title(params.fetch("name"))
   @snippetSearch = Snippet.search_by_title_tags_content_description(params.fetch("name"))
   erb(:resultPage)
