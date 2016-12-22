@@ -68,7 +68,7 @@
       <div class="row">
         <div class="col s12">
           <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
-          <h3><b><span class="darkblue-text">New Snippet</span></b></h4>
+          <h3><b><span class="darkblue-text">New Snippet for <%=$language.upcase  %> </span></b></h4>
         </div>
       </div>
     </div>
@@ -118,9 +118,6 @@
               <div class="input-field col s6 m6">
                 <input id="title" name="title" type="text" required>
                 <label for="title"><b>Title</b></label>
-                <div class=""><p>.</p>
-
-                </div>
               </div>
               <div class="input-field col s6">
                 <select name="folder_id">
@@ -133,15 +130,21 @@
                 </select>
                 <label>Folder</label>
               </div>
-              <div class="input-field col s12">
+            </div>
+              <div class="row">
+              <div class="input-field col s6">
                 <textarea id="textarea1" class="lined" name='content'>
-                def enter_code
-                  puts('here')
-                end
+Enter your code here!
                 </textarea>
               </div>
+              <div class="input-field col s6">
+                <textarea id="textarea1" class="lined" name='content'>
+Enter your comments here!
+                </textarea>
+              </div>
+
             </div>
-            <div class="row">
+            <!-- <div class="row">
               <div class="col s12 noscroll">
                 <label>Select a Language</label>
                   <p>
@@ -162,9 +165,10 @@
 
                     <input name="selected-language2" value="uncategorized2" type="radio" id="uncategorized2" checked="checked" />
                     <label for="uncategorized2">Uncategorized</label>
-                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
               </div> <!-- col end -->
             </div>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
+
           </div>
         </div> <!-- close row -->
 
