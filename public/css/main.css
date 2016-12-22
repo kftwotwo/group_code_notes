@@ -24,8 +24,8 @@ w {
 
 }
 .myfolders{
-  max-width: 270px;
-  min-width: 270px;
+  max-width: 230px;
+  min-width: 230px;
   background-color: #607d8b;
   overflow: auto;
   height:100vh;
@@ -224,7 +224,6 @@ overflow: scroll;
 }
 
 .background {
-  background-color: #263238;
+  background-color: #607d8b;
   color: white;
 }
-.newSnippet { width: 80% !important ; max-height: 120% !important ; overflow-y: hidden !important ;}
