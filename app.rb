@@ -58,8 +58,8 @@ end
 #
 post '/new_folder' do
   folder_name = params[:name]
-  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>params['selected-language'])
-  redirect '/language/'+params['selected-language']
+  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>$language)
+  redirect '/language/'+$language
 end
 
 get '/folder/:id' do
