@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/default.min.css">
     <link href="/css/jquery-linedtextarea.css" type="text/css" rel="stylesheet"/>
     <link href="/css/prism.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/3b17266ea8.js"></script>
     <script>
 function openWin() {
   window.open("http://www.github.com/logout");
@@ -36,13 +37,16 @@ function openWin() {
     <%= erb :modal %>
 
     <% else %> <!-- else for authentication -->
-      <div class="back">
+      <div class="login-back">
         <div class="container">
           <div class="row">
             <div class="col s12 login-center">
-              <div class="wrap">
-                <a href="/login" class="waves-effect waves-light btn brown darken-3">Sign in with GitHub</a>
-              </div>
+              <div id="login-box">
+                <div class="login-button-space">
+                  <img src="/img/Code_Notes_Black.png" width="300" alt="Login with Github" class="login-logo-left"><br>
+                  <a href="/login" class="waves-effect waves-light btn darkblue"><span class="fa fa-github"></span>  Sign in with GitHub</a>
+                </div><!-- login-button space end -->
+              </div>      <!-- login-box end -->
             </div>
           </div>
         </div>
