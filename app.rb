@@ -3,6 +3,8 @@ Dotenv.load
 
 require 'sinatra'
 
+require 'pg_search'
+
 require 'sinatra/activerecord'
 require 'rack-flash'
 require('pry')
@@ -17,6 +19,7 @@ require_relative('models/snippet')
 require_relative('models/folder')
 require_relative "controllers/snippet"
 require_relative "controllers/authentication"
+
 
 enable :sessions
 # set :session_secret, ENV['SESSION_SECRET'] || 'MY_DEV_SECRET_4_SNIPPETS'
@@ -157,4 +160,16 @@ end
 delete '/snippet/:id/delete' do
   Snippet.find(params['id'].to_i).destroy
   redirect '/language/'+$language
+end
+
+# search function
+
+get("/search/results") do
+  erb(:resultPage)
+end
+
+post("/search/results") do
+  @folderSearch = Folder.search_by_title(params.fetch("name"))
+  @snippetSearch = Snippet.search_by_title_tags_content_description(params.fetch("name"))
+  erb(:resultPage)
 end
