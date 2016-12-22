@@ -1,7 +1,12 @@
 body {
   background-color: #f5f5f5;
-  margin-bottom: 20px;
+  /*margin-bottom: 20px;*/
 }
+
+#row-override {
+  margin-bottom: 0;
+}
+
 h5 {
   color: #fff;
 }
@@ -45,12 +50,12 @@ w {
   background-color: #f5f5f5;
   height: 300px;
   width: 300px;
-  position:fixed;
+  /*position:fixed;
   top: 25%;
-  left: 25%;
+  left: 25%;*/
   border-radius: 10px;
   box-shadow: 5px 5px 5px #333;
-
+  margin: 0 auto;
 }
 .login-logo-left {
   margin-top: 40px;
@@ -63,6 +68,10 @@ w {
   top: 50%;
 }
 
+.tall-row {
+  height: 100%;
+}
+
 .centerIt {
   position: absolute;
   top: 50%;
@@ -70,16 +79,25 @@ w {
   transform: translate(-50%,-50%);
   }
 .login-center {
-  position: absolute;
+  /*position: absolute;
+  top: 50%;*/
+  position: relative;
   top: 50%;
+  transform: translateY(-50%);
   }
 #yield{
   height: 100%;
   overflow: visible;
+  width: 80%;
 }
 img {
   margin-top: 35%;
 }
+
+#img-override {
+  margin-top: 0;
+}
+
 .space {
   margin-top: 25px;
 }
@@ -159,7 +177,10 @@ img {
 .footer {
   font-size: 0.6em;
   text-align:center;
-  margin-top: 400px;
+  position: absolute;
+  bottom: 0;
+  padding-right: 15%;
+  width: 100%;
 }
 .import {
   text-align: center;
@@ -265,6 +286,7 @@ overflow: scroll;
 }
 
 .sticky-search {
+  z-index: 1 !important;
   position: fixed;
   min-width: 56% !important;
 }
@@ -277,4 +299,8 @@ overflow: scroll;
 
 .lightblue-text a {
   color: #263238;
+}
+
+.space2 {
+
 }
