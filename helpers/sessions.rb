@@ -1,6 +1,5 @@
 require 'securerandom'
 require 'httparty'
-require('pry')
 
 helpers do
   def current_github_username
