@@ -21,6 +21,15 @@ function openWin() {
       <div class="row">
         <%= erb :sidebar_nav %>
         <div class="col s4 m5 l8 float-fix" id="yield"><br>
+          <div class="nav-wrapper sticky-search">
+            <form action="/search/results" method="post">
+              <div class="input-field lightgrey">
+                <input id="search" name="name" type="search" required>
+                <label for="search" id="dont"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </div><br><br>
           <%= yield %>
         </div> <!-- close row-->
       </div>
