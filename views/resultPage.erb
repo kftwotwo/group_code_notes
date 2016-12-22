@@ -1,16 +1,16 @@
 <hr>
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h2 class="display-3">Coding Snippet Notes</h2>
-    <h5 class="lead"> The query has yielded the following results</h5>
+    <h2 class="search-header darkblue-text">Coding Snippet Notes</h2>
+    <h4 class="search-subtitle">Your results are below</h4>
   </div>
 </div>
 <hr>
 
-
 <div class="row">
   <div class="col m6">
-    <h1>Folder(s):</h1>
+    <div class="search-box">
+    <h1><span class=" search-cat darkblue-text">Folder<g>(</g>s<g>)</g></span></h1>
     <% if @folderSearch.any? %>
       <ul>
         <% @folderSearch.each() do |folder|%>
@@ -21,7 +21,7 @@
       <ul>
         <%@snippetSearch.each() do |snippet| %>
             <% if snippet != nil %>
-          <li><%= Folder.find(snippet.folder_id()).name()%></li>
+          <li><span class="darkblue-text"><%= Folder.find(snippet.folder_id()).name()%></span></li>
           <% end %>
         <% end %>
       </ul>
@@ -29,12 +29,12 @@
         No folders
       <%end %>
     </div>
-
+  </div>  <!-- search box end -->
 
 
   <div class="col m6">
-
-      <h1>Snippet(s):</h1>
+  <div class="search-box">
+      <h1><span class=" search-cat darkblue-text">Snippet<g>(</g>s<g>)</g></span></h1>
       <% if @snippetSearch.any? %>
       <ul>
         <%@snippetSearch.each() do |snippet| %>
@@ -46,3 +46,4 @@
       <%end %>
   </div>
 </div>
+</div>  <!-- search box end -->
