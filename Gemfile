@@ -15,6 +15,7 @@ gem 'rack-flash3'
 gem 'json', '~>1.7'
 gem 'pry'
 gem 'gist'
+gem 'pg_search'
 
 
 group :development, :test do
