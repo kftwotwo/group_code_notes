@@ -180,3 +180,8 @@ post("/search/results") do
   @snippetSearch = Snippet.search_by_title_tags_content_description(params.fetch("name"))
   erb(:resultPage)
 end
+
+get '/home' do
+  @snippets = Snippet.where("created_at < ?", 2.days.ago)
+  erb(:home)
+end

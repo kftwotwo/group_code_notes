@@ -1,0 +1,10 @@
+<p>Most recent Activity</p>
+<ul>
+  <% if @snippets.any? %>
+    <% @snippets.each do |snippet| %>
+    <li><a href="/snippet/<%= snippet.id %>"><%= snippet.name %></a></li>
+    <% end %>
+  <% else %>
+   <p>None at the moment</p>
+ <% end %>
+</ul>
