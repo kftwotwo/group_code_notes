@@ -5,3 +5,7 @@ development:
 test:
   adapter: postgresql
   database: coding_notes_test
+
+production:
+  adapter: postgresql
+  database: <%= ENV['DATABASE_URL'] %>
