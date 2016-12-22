@@ -1,0 +1,7 @@
+<form action="/folder/<%= @folder.id %>/delete" method="post" class="left delete-form">
+ <input name="_method" type="hidden" value="delete">
+ <p>Are you sure you want to delete <%= @folder.name %></p>
+ <button type="submit" class="btn red right">Yes</button>
+ <a href="/" class="btn green">No</a>
+</form>
+ <!--  it will change soon -->
