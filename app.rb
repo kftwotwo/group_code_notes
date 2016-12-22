@@ -37,12 +37,12 @@ end
 post '/*/import_gists' do
   create_default_folders!
   import_gists()
-  erb(:gists)
+  redirect '/language/'+$language
 end
 post '/import_gists' do
   create_default_folders!
   import_gists()
-  erb(:gists)
+  redirect '/language/'+$language
 end
 
 get '/language/:lang' do
