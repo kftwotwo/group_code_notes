@@ -97,7 +97,7 @@ post('/new_snippet') do
   new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :github_username => current_github_username, :language=>params['selected-language'],:description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :gist_save => snippet_save_git)
   @folder = Folder.find(folder_id)
   @folder.snippets.push(new_snippet)
-  redirect '/'
+  redirect '/language/'+$language
 end
 
 get '/snippet/:id' do
