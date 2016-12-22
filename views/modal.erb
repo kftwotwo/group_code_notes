@@ -1,4 +1,4 @@
-<!-- Kevin's modal -->
+
 <div class="fixed-action-btn horizontal click-to-toggle bottom-push">
   <a class="btn-floating btn-large red">
     <i class="material-icons">menu</i>
@@ -7,9 +7,11 @@
     <li>
       <a class="btn-floating blue modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Folder" href="#new_folder"><i class="material-icons">library_add</i></a>
     </li>
+    <% if Folder.find_by(:language => $language) != nil%>
     <li>
       <a class="btn-floating purple modal-trigger tooltipped" data-position="top" data-delay="50" data-tooltip="New Snippet" href="#new_snippet"><i class="material-icons">note_add</i></a>
     </li>
+    <% end %>
   </ul>
 </div>
 
@@ -97,7 +99,6 @@
               </div>
               <div class="input-field col s6">
                 <select name="folder_id">
-                  <option value="" disabled selected>Choose a Folder</option>
                   <% if @folders.any? %>
                     <% @folders.each do |folder| %>
                       <option value="<%= folder.id %>"> <%= folder.name %></option>
@@ -118,30 +119,7 @@ Enter your code here!
 Enter snippet's description here!
                 </textarea>
               </div>
-
             </div>
-            <!-- <div class="row">
-              <div class="col s12 noscroll">
-                <label>Select a Language</label>
-                  <p>
-                    <input name="selected-language2" value="html2" type="radio" id="html2" />
-                    <label for="html2">HTML</label>
-
-                    <input name="selected-language2" value="css2" type="radio" id="css2" />
-                    <label for="css2">CSS</label>
-
-                    <input name="selected-language2" value="javascript2" type="radio" id="javascript2"/>
-                    <label for="javascript2">Javascript</label>
-
-                    <input name="selected-language2" value="ruby2" type="radio" id="ruby2"/>
-                    <label for="ruby2">Ruby</label>
-
-                    <input name="selected-language2" value="favorites2" type="radio" id="favorites2"/>
-                    <label for="favorites2">Favorites</label>
-
-                    <input name="selected-language2" value="uncategorized2" type="radio" id="uncategorized2" checked="checked" />
-                    <label for="uncategorized2">Uncategorized</label>
-              </div> <!-- col end -->
             </div>
             &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button class="btn waves-effect waves-light btn lightblue" type="submit">Enter</button>
 
