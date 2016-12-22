@@ -53,13 +53,13 @@ end
 
 get '/' do
   $language = "uncategorized"
-  erb :index
+  redirect 'language/favorites'
 end
 #
 post '/new_folder' do
   folder_name = params[:name]
-  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>params['selected-language'])
-  redirect '/language/'+params['selected-language']
+  @folder = Folder.create(:name => folder_name, :github_username => current_github_username, :language=>$language)
+  redirect '/language/'+$language
 end
 
 get '/folder/:id' do
@@ -75,27 +75,32 @@ end
 
 delete '/folder/:id/delete' do
   Folder.find(params["id"].to_i).destroy
-  redirect '/'
+  redirect '/language/'+$language
 end
 
 patch '/folder/:id' do
   @folders = Folder.find(params["id"].to_i)
   update_name = params['update_name']
   @folders.update({:name => update_name})
-  redirect '/'
+  redirect '/language/'+$language
 end
 
 post('/new_snippet') do
   snippet_title = params[:title]
   snippet_description = params[:description]
   snippet_content = params[:content]
-  snippet_tags = params[:tags]
+  snippet_public = params[:public]
+  snippet_save_git = params[:save_git]
+  snippet_favorite = params[:add_to_fav]
+  # snippet_tags = params[:tags]
   folder_id = params[:folder_id]
-  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => current_github_username, :language=>params['selected-language'],:description => snippet_description, :public => true)
+  new_snippet = Snippet.create(:title => snippet_title, :content => snippet_content, :github_username => current_github_username, :language=>params['selected-language'],:description => snippet_description, :public => snippet_public, :favorite => snippet_favorite, :gist_save => snippet_save_git)
   @folder = Folder.find(folder_id)
   @folder.snippets.push(new_snippet)
-  p @folder.snippets
-  redirect '/'
+  if snippet_save_git
+    create_new_gist(snippet_content, snippet_title, snippet_public, snippet_description)
+  end
+  redirect '/language/'+$language
 end
 
 get '/snippet/:id' do
@@ -115,7 +120,7 @@ patch '/snippet/:id/edit' do
   snippet_content = params['update_content']
   snippet_tags = params['update_tag']
   @snippet.update({:title => snippet_title, :content => snippet_content, :tags => snippet_tags, :github_username => "Josh", :language => "ruby",:description => snippet_description, :public => true})
-  redirect '/'
+  redirect '/language/'+$language
 end
 
 get '/snippet/:id/delete' do
@@ -125,5 +130,5 @@ end
 
 delete '/snippet/:id/delete' do
   Snippet.find(params['id'].to_i).destroy
-  redirect '/'
+  redirect '/language/'+$language
 end
