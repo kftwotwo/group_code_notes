@@ -21,7 +21,7 @@ function openWin() {
     <% if authenticated? %>
       <div class="row">
         <%= erb :sidebar_nav %>
-        <div class="col s4 m5 l8 float-fix" id="yield"><br>
+        <div class="col s3 m6 l8 float-fix" id="yield"><br>
           <div class="nav-wrapper sticky-search">
             <form action="/search/results" method="post">
               <div class="input-field lightgrey">
@@ -39,7 +39,7 @@ function openWin() {
     <% else %> <!-- else for authentication -->
       <div class="login-back">
         <div class="container">
-          <div class="row">
+          <div class="row tall-row" id="row-override">
             <div class="col s12 login-center">
               <div id="login-box">
                 <div class="login-button-space">
