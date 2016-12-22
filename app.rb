@@ -39,6 +39,11 @@ post '/*/import_gists' do
   import_gists()
   erb(:gists)
 end
+post '/import_gists' do
+  create_default_folders!
+  import_gists()
+  erb(:gists)
+end
 
 get '/language/:lang' do
   $language = params['lang']

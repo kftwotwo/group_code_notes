@@ -61,6 +61,12 @@ helpers do
         }
       }
       Snippet.create(:title => filename, :content => content, :tags => "Github-Gist", :github_username => current_github_username, :language => language, :public => publicness)
+      snippet = Snippet.find_by(:title => filename)
+      if language != nil
+        folder = Folder.find_by(:name=> "Default", :language=>language.downcase)
+        # binding.pry
+        folder.snippets.push(snippet)
+      end
     end
   end
 
