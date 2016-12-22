@@ -2,7 +2,6 @@
 <div class="sticky-bar">
   <div class="col s1 mynav">
     <br>
-
     <a href="/"><span class="home-button"><i class="material-icons">home</i></a></span><br><br>
     <!-- Grey navigation panel -->
     <div class="languages">
@@ -19,12 +18,9 @@
     <br>
     <center>
       <div class="chip">
-        <a href="#settings" class="modal-trigger"><img src="<%= current_github_avatar %>" alt="Contact Person">
-          <%= current_github_username %>
-          <span class="settings-icon"><i class="material-icons">settings</i></a></span>
+        <a href="#settings" class="modal-trigger"><img src="<%= current_github_avatar %>" alt="Contact Person"><%= current_github_username %><span class="settings-icon"><i class="material-icons">settings</i></a></span>
       </div>
     </center>
-
   <br>
     <center><span class="language-title"><%= $language.upcase() %></span></center><br>
     <ul class="collapsible" data-collapsible="accordion">
@@ -33,7 +29,7 @@
           <li>
             <div class="collapsible-header blue-grey lighten-4">
               <i class="material-icons">web</i><%= folder.name %>
-            <span class="edit-folder"><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></span>
+              <span class="edit-folder"><a href="/folder/<%= folder.id %>"><i class="material-icons">mode_edit</i></a></span>
             </div>
             <% if folder.snippets.any?() %>
               <% folder.snippets.each() do |snippet| %>
@@ -56,18 +52,9 @@
         <div class="collapsible-header blue-grey lighten-4 "><i class="material-icons">not_interested</i>No Folders</div>
       <% end %>
     </ul>
-  </div> <!-- close sub folder div -->
+  </div>
+</div>
 
-<<<<<<< HEAD
-  <div id="settings"class="modal modal-form">
-    <div class="modal-content background">
-      <div class="modal-header">
-        <div class="row">
-          <div class="col s12">
-            <button type="button" class="modal-close waves-effect waves-light btn right red">x</button>
-            <h4><b>Settings</b></h4>
-          </div>
-=======
 <div id="settings"class="modal modal-form newSettings">
   <div class="modal-content">
     <div class="modal-header">
@@ -75,51 +62,34 @@
         <div class="col s12">
           <button type="button" class="modal-close waves-effect waves-light btn right darkblue">x</button>
           <h4><b><span class="darkblue-text">Settings</span></b></h4>
->>>>>>> 7cc0383... styles settings
         </div>
       </div>
-      <center>
-          <div class="chip">
-          <img src="<%= current_github_avatar %>" alt="Contact Person">
-            <%= current_github_username %>
-        </div><br><br>
-        <h4><a href="/"><i class="material-icons">home</i>Home</a></h4>
-        <h4><a href="https://www.github.com/<%= current_github_username %>">Your Profile</a></h4>
-        <h4><a href="https://github.com/settings/profile">Edit Profile</a></h4>
-        <h4><a href="https://www.github.com/<%= current_github_username %>">Github</a></h4>
-        <h4><a href="https://gist.github.com/">Gist</a></h4><br>
-        <h4></h4><a href="#" id="logout" class="waves-effect waves-light btn red" onclick="logout()">Logout</a>
-      </center>
     </div>
-<<<<<<< HEAD
-=======
     <center>
-        <div class="chip">
+      <div class="chip">
         <img src="<%= current_github_avatar %>" alt="Contact Person">
-          <%= current_github_username %>
+        <%= current_github_username %>
       </div><br><br>
-  <div class="lightblue-text" id="settings-link-color">
-      <h5><a href="/">Home</a></h5>
-      <h5><a href="https://www.github.com/<%= current_github_username %>">Your Profile</a></h5>
-      <h5><a href="https://github.com/settings/profile">Edit Profile</a></h5>
-      <h5><a href="https://www.github.com/<%= current_github_username %>">Github</a></h5>
-      <h5><a href="https://gist.github.com/">Gist</a></h5><br>
-
-  </div>  <!-- left align end -->
-  <a href="#" id="logout" class="waves-effect waves-light btn lightblue" onclick="logout()">Logout</a>
+      <div class="lightblue-text" id="settings-link-color">
+          <h5><a href="/">Home</a></h5>
+          <h5><a href="https://www.github.com/<%= current_github_username %>">Your Profile</a></h5>
+          <h5><a href="https://github.com/settings/profile">Edit Profile</a></h5>
+          <h5><a href="https://www.github.com/<%= current_github_username %>">Github</a></h5>
+          <h5><a href="https://gist.github.com/">Gist</a></h5><br>
+      </div>  <!-- left align end -->
+      <a href="#" id="logout" class="waves-effect waves-light btn lightblue" onclick="logout()">Logout</a>
     </center>
->>>>>>> 7cc0383... styles settings
   </div>
-
-  <script type="text/javascript">
-    function logout() {
-      var win = window.open('http://github.com/logout', 'logout','width=400,height=350,scrollbars=no');
-      var timer = setInterval(function() {
-      if(win.closed) {
-          clearInterval(timer);
-          window.location = "http://localhost:4567/logout";
-                      }
-    }, 1000);
-    }
-  </script>
 </div>
+
+<script type="text/javascript">
+  function logout() {
+    var win = window.open('http://github.com/logout', 'logout','width=400,height=350,scrollbars=no');
+    var timer = setInterval(function() {
+    if(win.closed) {
+        clearInterval(timer);
+        window.location = "http://localhost:4567/logout";
+                    }
+  }, 1000);
+  }
+</script>
