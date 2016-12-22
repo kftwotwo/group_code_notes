@@ -149,6 +149,9 @@ patch '/snippet/:id/edit' do
         Folder.create(:name => "Default", :github_username => current_github_username, :language=>"favorites")
     end
   end
+  # if snippet_save_git
+  #   Gist.gist(snippet_content, options = {:access_token => @auth,:update=> @snippet.gist_id, :filename=> snippet_title, :public => snippet_public, :description => snippet_description})
+  # end
   redirect '/snippet/'+params["id"]+'/edit'
 end
 
