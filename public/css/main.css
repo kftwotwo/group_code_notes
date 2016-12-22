@@ -46,6 +46,10 @@ w {
   left:50%;
   transform: translate(-50%,-50%);
   }
+.login-center {
+  position: absolute;
+  top: 50%;
+  }
 #yield{
   height: 100%;
   overflow: visible;
@@ -146,6 +150,7 @@ img {
   box-shadow: 2px 2px 2px #888;
   margin-top: -20px;
   margin-bottom: 20px;
+  border: solid thick #999;
 }
 
 .input-field input[type=text]:focus + label {
@@ -191,4 +196,29 @@ overflow: scroll;
 }
 .input-field label#dont{
   transform: translateY(0);
+}
+
+#textarea2{
+  height: 130px;
+  background-color: #fff;
+  box-shadow: 2px 2px 2px #888;
+  margin-bottom: 20px;
+}
+#textarea-comments{
+  height: 130px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+.update-box {
+  border: thin solid #000;
+  padding: 20px;
+}
+
+.text-label {
+  color: #888;
+}
+
+#search {
+  margin-top: -35px;
 }

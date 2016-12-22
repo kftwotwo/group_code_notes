@@ -1,14 +1,47 @@
-<b>Title: <%= @snippet.title %><br></b>
+<h4><span class="darkblue-text">Snippet: <%= @snippet.title %><br></span></h4>
 
 <div class="row">
   <form class="" action="/snippet/<%= @snippet.id %>/edit" method="post">
     <input name="_method" type="hidden" value="patch">
     <div class="input-field col s12 m6">
-      <p for="update_content">Update Code</p>
-      <textarea id="textarea1" class="lined" name='update_content' required><%= @snippet.content %></textarea>
+      <span class="text-label" for="update_content">Update Code</span>
+      <textarea id="textarea2" class="lined" name='update_content' required><%= @snippet.content %></textarea>
+      <span class="text-label">Update Comments</span>
+      <textarea id="textarea-comments" class="lined" name='comments' required>!!!!! insert comment with ruby tag</textarea>
+
     </div>
 
+
     <div class="col m6">
+      <!-- <div class="update-box"> -->
+<br>
+<div class="row">
+  <div class="switch">
+
+    <label>
+      Public (off)
+      <input type="checkbox" name="public">
+      <span class="lever"></span>
+      Private (on)
+    </label><br><br>
+
+    Save on Gist?<br>
+    <label>
+       No
+      <input type="checkbox" name="save_git">
+      <span class="lever"></span>
+      Yes
+    </label><br><br>
+
+    Add to Favorites<br>
+    <label>
+      No
+      <input type="checkbox" name="add_to_fav">
+      <span class="lever"></span>
+      Yes
+    </label>
+  </div>
+</div>
       <label for="update_title">Update Title</label>
       <input type="text" name="update_title" id="update_title" value="<%= @snippet.title %>" required><br>
 
@@ -18,9 +51,13 @@
       <label for="update_tag">Update Tags</label>
       <input type="text" name="update_tag" id="update_tag" value='<%= @snippet.tags %>' required><br>
 
-    </div>
-    <button type="submit" class="btn green">Update</button>
-  </form>
-</div>
 
-<a href="/snippet/<%= @snippet.id %>/delete" class="btn red">Delete</a>
+    <button type="submit" class="btn lightblue">Update</button>
+
+  </form>
+  <a href="/snippet/<%= @snippet.id %>/delete" class="btn red">Delete</a>
+<!-- </div> -->
+</div> <!-- col end box -->
+
+
+</div> <!-- row end box -->
