@@ -53,6 +53,7 @@ helpers do
       filename = gist.fetch('files').values[0].fetch('filename', "N/A")
       publicness = gist.fetch('public', 1)
       description = gist.fetch('description', "N/A")
+      id = gist.fetch('id', "N/A")
       language = gist.fetch('files').values[0].fetch('language',"N/A")
       open(URI(gist.fetch('files').values[0].fetch('raw_url'))) {|f|
         f.each_line {|line|
@@ -60,7 +61,7 @@ helpers do
           content+="<br />"
         }
       }
-      Snippet.create(:title => filename, :content => content, :tags => "Github-Gist", :github_username => current_github_username, :language => language, :public => publicness)
+      Snippet.create(:title => filename, :content => content, :tags => "Github-Gist", :github_username => current_github_username, :language => language, :public => publicness, :gist_id =>id)
       snippet = Snippet.find_by(:title => filename)
       if language != "html" or language != "css" or language != "ruby" or language != "favorites" or language != "javascript"
         folder = Folder.find_by(:name=> "Default", :language=>"uncategorized")
