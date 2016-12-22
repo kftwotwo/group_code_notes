@@ -39,8 +39,8 @@ w {
   border-radius: 10px;
 }
 .login-back{
-    /*background: url('/img/back.jpg') fixed;*/
-    background-color: #607d8b;
+    background: url('/img/back4.jpg') fixed;
+    /*background-color: #607d8b;*/
     background-size: cover;
     padding: 0;
     margin: 0;
