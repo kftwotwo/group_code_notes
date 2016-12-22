@@ -7,7 +7,7 @@
       <span class="text-label" for="update_content">Update Code</span>
       <textarea id="textarea2" class="lined" name='update_content' required><%= @snippet.content %></textarea>
       <span class="text-label">Update Comments</span>
-      <textarea id="textarea-comments" class="lined" name='comments' required>!!!!! insert comment with ruby tag</textarea>
+      <textarea id="textarea-comments" class="lined" name='comments' required> <%= @snippet.comments %> </textarea>
 
     </div>
 
@@ -17,10 +17,13 @@
 <br>
 <div class="row">
   <div class="switch">
-
     <label>
       Public (off)
-      <input type="checkbox" name="public">
+      <% if @snippet.public%>
+      <input type="checkbox" name="public" checked>
+      <% else %>
+      <input type="checkbox" name="public" >
+      <% end %>
       <span class="lever"></span>
       Private (on)
     </label><br><br>
@@ -28,7 +31,11 @@
     Save on Gist?<br>
     <label>
        No
-      <input type="checkbox" name="save_git">
+       <% if @snippet.gist_save%>
+       <input type="checkbox" name="save_git" checked>
+       <% else %>
+       <input type="checkbox" name="save_git" >
+       <% end %>
       <span class="lever"></span>
       Yes
     </label><br><br>
@@ -36,7 +43,11 @@
     Add to Favorites<br>
     <label>
       No
-      <input type="checkbox" name="add_to_fav">
+      <% if @snippet.favorite%>
+      <input type="checkbox" name="add_to_fav" checked>
+      <% else %>
+      <input type="checkbox" name="add_to_fav" >
+      <% end %>
       <span class="lever"></span>
       Yes
     </label>
