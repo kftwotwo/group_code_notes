@@ -13,9 +13,6 @@
     <ul>
       <% if @snippet.any? %>
         <li><a href="/snippet/<%= @snippets.id %>"><%= @snippets.title %></a></li>
-        <% @snippet.each do |snippet| %>
-        <li><a href="/snippet/<%= snippet.id %>"><%= snippet.title %></a></li>
-        <% end %>
       <% else %>
        <p>None at the moment</p>
      <% end %>
