@@ -4,13 +4,13 @@
   <form class="" action="/snippet/<%= @snippet.id %>/edit" method="post">
     <input name="_method" type="hidden" value="patch">
     <div class="input-field col s12 m6">
+      <pre class="line-numbers"><code class="language-css"><%=@snippet.content %></code></pre>
       <span class="text-label" for="update_content">Update Code</span>
       <textarea id="textarea2" class="lined" name='update_content' required><%= @snippet.content %></textarea>
       <span for="update_comments"class="text-label">Update Comments</span>
       <textarea id="textarea-comments" class="lined" name='update_comments' required> <%= @snippet.comments %> </textarea>
 
     </div>
-
 
     <div class="col m6">
       <!-- <div class="update-box"> -->

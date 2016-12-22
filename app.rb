@@ -146,7 +146,7 @@ patch '/snippet/:id/edit' do
         Folder.create(:name => "Default", :github_username => current_github_username, :language=>"favorites")
     end
   end
-  redirect '/language/'+$language
+  redirect '/snippet/'+params["id"]+'/edit'
 end
 
 get '/snippet/:id/delete' do
